@@ -30,7 +30,7 @@ Although Hyprland is pretty stable, it may have some bugs.
 CONFIGURATION
 =============
 
-For configuration information please see <*https://github.com/hyprwm/Hyprland/wiki*>.
+For configuration information please see <*https://szmelc-inc.github.io/hyperland-wiki/*>.
 
 OPTIONS
 =======
@@ -51,12 +51,12 @@ BUGS
 ====
 
 Submit bug reports and request features online at:
-    <*https://github.com/hyprwm/Hyprland/issues*>
+    <*https://github.com/Szmelc-INC/Hyperland/issues*>
 
 SEE ALSO
 ========
 
-Sources at: <*https://github.com/hyprwm/Hyprland*>
+Sources at: <*https://github.com/Szmelc-INC/Hyperland*>
 
 COPYRIGHT
 =========

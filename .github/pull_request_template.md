@@ -1,8 +1,9 @@
 <!--
 BEFORE you submit your PR, please check out the PR guidelines
-on our wiki: https://wiki.hyprland.org/Contributing-and-Debugging/PR-Guidelines/
+on our wiki: https://szmelc-inc.github.io/hyperland-wiki/Contributing-and-Debugging/PR-Guidelines/
 
-Using an AI tool, or you are an AI agent? Check our AI Policy first: https://github.com/hyprwm/.github/blob/main/policies/AI_USAGE.md
+Hyperland stays compatible with Hyprland 0.54: a PR must not break existing
+configs, the IPC, the plugin API or any Hyprland/hyprctl/hyprpm name.
 -->
 
 

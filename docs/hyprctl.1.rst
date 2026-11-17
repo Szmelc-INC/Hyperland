@@ -108,12 +108,12 @@ BUGS
 ====
 
 Submit bug reports and request features online at:
-    <*https://github.com/hyprwm/Hyprland/issues*>
+    <*https://github.com/Szmelc-INC/Hyperland/issues*>
 
 SEE ALSO
 ========
 
-Sources at: <*https://github.com/hyprwm/Hyprland*>
+Sources at: <*https://github.com/Szmelc-INC/Hyperland*>
 
 COPYRIGHT
 =========

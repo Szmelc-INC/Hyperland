@@ -29,7 +29,7 @@ Examples of breaking each rule respectively include:
 
 ## Enforcement
 
-Enforcement of this CoC is done by the members of the hyprwm organization.
+Enforcement of this CoC is done by the maintainers of the Szmelc-INC organization.
 
 We, as the organization, will strive our best to keep this community civil and
 following the standards outlined above.
@@ -37,21 +37,9 @@ following the standards outlined above.
 ### Reporting incidents
 
 If you believe an incident of breaking our standards has occurred, but nobody has
-taken appropriate action, you can privately contact the people responsible for dealing
-with such incidents in multiple ways:
+taken appropriate action, contact the maintainers privately through the
+Szmelc-INC GitHub organization (https://github.com/Szmelc-INC).
 
-***E-Mail***
- - `vaxry[at]vaxry.net`
- - `mihai[at]fufexan.net`
-
-***Discord***
- - `@vaxry`
- - `@fufexan`
-
-***Matrix***
- - `@vaxry:matrix.vaxry.net`
- - `@fufexan:matrix.org`
- 
 We, as members, guarantee your privacy and will not share those reports with anyone.
 
 ## Enforcement Strategy
@@ -89,7 +77,7 @@ ignoring previous punishments, a member might ban you permanently.
 
 ## Scope
 
-This CoC shall apply to all projects ran under the `hyprwm` organization and all _official_ communities
+This CoC shall apply to all projects ran under the `Szmelc-INC` organization and all _official_ communities
 outside of GitHub.
 
 However, it is worth noting that official communities outside of GitHub might have their own,
