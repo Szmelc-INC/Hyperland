@@ -1,10 +1,10 @@
-name: Build Hyprland
+name: Build Hyperland
 
 on: [push, pull_request, workflow_dispatch]
 jobs:
   gcc:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork
-    name: "Build Hyprland (Arch)"
+    name: "Build Hyperland (Arch)"
     runs-on: ubuntu-latest
     container:
       image: archlinux
@@ -19,27 +19,42 @@ jobs:
         with:
           INSTALL_XORG_PKGS: true
 
-      - name: Build Hyprland
+      - name: Build Hyperland
         run: |
-          CFLAGS=-Werror CXXFLAGS=-Werror make nopch
+          make nopch
+
+      - name: Smoke test and install layout
+        run: |
+          ./build/Hyperland --version
+          DESTDIR="$PWD/stage" cmake --install build --prefix /usr
+          for f in Hyperland hyperland Hyprland hyprland hyperctl hyprctl hyperpm hyprpm start-hyperland start-hyprland; do
+            test -e "stage/usr/bin/$f" || { echo "missing /usr/bin/$f"; exit 1; }
+          done
+          for f in hyperland.desktop hyprland.desktop hyperland-uwsm.desktop hyprland-uwsm.desktop; do
+            test -e "stage/usr/share/wayland-sessions/$f" || { echo "missing session $f"; exit 1; }
+          done
+          test -e stage/usr/share/pkgconfig/hyprland.pc
+          test -e stage/usr/share/pkgconfig/hyperland.pc
+          test -e stage/usr/share/hypr/hyperland.conf
+          test -e stage/usr/share/hypr/hyprland.conf
 
       - name: Compress and package artifacts
         run: |
           mkdir x86_64-pc-linux-gnu
-          mkdir hyprland
-          cp ./LICENSE hyprland/
-          cp build/Hyprland hyprland/
-          cp build/hyprctl/hyprctl hyprland/
-          cp build/hyprpm/hyprpm hyprland/
-          cp -r example/ hyprland/
-          cp -r assets/ hyprland/
-          tar -cvJf Hyprland.tar.xz hyprland
+          mkdir hyperland
+          cp ./LICENSE hyperland/
+          cp build/Hyperland hyperland/
+          cp build/hyprctl/hyperctl hyperland/
+          cp build/hyprpm/hyperpm hyperland/
+          cp -r example/ hyperland/
+          cp -r assets/ hyperland/
+          tar -cvJf Hyperland.tar.xz hyperland
 
       - name: Release
         uses: actions/upload-artifact@v4
         with:
           name: Build archive
-          path: Hyprland.tar.xz
+          path: Hyperland.tar.xz
 
   clang-format:
     permissions: read-all

@@ -67,38 +67,16 @@ runs:
           librsvg \
           re2
 
-    - name: Get hyprwayland-scanner-git
+    - name: Get hypr* libraries (Arch packages)
       shell: bash
       run: |
-        git clone https://github.com/hyprwm/hyprwayland-scanner --recursive
-        cd hyprwayland-scanner
-        cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
-        cmake --build ./build --config Release --target all -j`nproc 2>/dev/null || getconf NPROCESSORS_CONF`
-        cmake --install build
-
-    - name: Get hyprwire-git
-      shell: bash
-      run: |
-        git clone https://github.com/hyprwm/hyprwire --recursive
-        cd hyprwire
-        cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
-        cmake --build ./build --config Release --target all -j`nproc 2>/dev/null || getconf NPROCESSORS_CONF`
-        cmake --install build
-
-    - name: Get hyprutils-git
-      shell: bash
-      run: |
-        git clone https://github.com/hyprwm/hyprutils && cd hyprutils && cmake -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -B build && cmake --build build --target hyprutils && cmake --install build
-
-    - name: Get hyprgraphics-git
-      shell: bash
-      run: |
-        git clone https://github.com/hyprwm/hyprgraphics && cd hyprgraphics && cmake -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -B build && cmake --build build --target hyprgraphics && cmake --install build
-
-    - name: Get aquamarine-git
-      shell: bash
-      run: |
-        git clone https://github.com/hyprwm/aquamarine && cd aquamarine && cmake -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -B build && cmake --build build --target aquamarine && cmake --install build
+        pacman --noconfirm --noprogressbar -Sy \
+          aquamarine \
+          hyprgraphics \
+          hyprland-protocols \
+          hyprutils \
+          hyprwayland-scanner \
+          hyprwire
 
     - name: Get Xorg pacman pkgs
       shell: bash
@@ -111,7 +89,7 @@ runs:
           xorg-xkbcomp \
           xorg-xwayland
 
-    - name: Checkout Hyprland
+    - name: Checkout Hyperland
       uses: actions/checkout@v4
       with:
         submodules: recursive
@@ -120,4 +98,4 @@ runs:
     - name: Mark directory as safe for git
       shell: bash
       run: |
-        git config --global --add safe.directory /__w/Hyprland/Hyprland
+        git config --global --add safe.directory /__w/Hyperland/Hyperland
