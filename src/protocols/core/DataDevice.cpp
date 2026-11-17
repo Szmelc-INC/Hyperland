@@ -564,7 +564,7 @@ void CWLDataDeviceProtocol::initiateDrag(WP<CWLDataSourceResource> currentSource
     Cursor::overrideController->setOverride("grabbing", Cursor::CURSOR_OVERRIDE_DND);
     m_dnd.overriddenCursor = true;
 
-    LOGM(Log::DEBUG, "initiateDrag: source {:x}, surface: {:x}, origin: {:x}", (uintptr_t)currentSource.get(), (uintptr_t)dragSurface, (uintptr_t)origin);
+    LOGM(Log::DEBUG, "initiateDrag: source {:x}, surface: {:x}, origin: {:x}", (uintptr_t)currentSource.get(), (uintptr_t)dragSurface.get(), (uintptr_t)origin.get());
 
     currentSource->m_used = true;
 
@@ -579,7 +579,7 @@ void CWLDataDeviceProtocol::initiateDrag(WP<CWLDataSourceResource> currentSource
                 return;
             }
 
-            if (m_dnd.dndSurface->m_current.texture <= 0 && m_dnd.dndSurface->m_mapped) {
+            if (!m_dnd.dndSurface->m_current.texture && m_dnd.dndSurface->m_mapped) {
                 m_dnd.dndSurface->unmap();
                 return;
             }
@@ -836,7 +836,7 @@ void CWLDataDeviceProtocol::renderDND(PHLMONITOR pMonitor, const Time::steady_tp
 }
 
 bool CWLDataDeviceProtocol::dndActive() {
-    return m_dnd.currentSource;
+    return !!m_dnd.currentSource;
 }
 
 void CWLDataDeviceProtocol::abortDndIfPresent() {

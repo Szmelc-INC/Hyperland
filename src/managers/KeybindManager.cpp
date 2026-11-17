@@ -2840,7 +2840,7 @@ SDispatchResult CKeybindManager::moveWindowOrGroup(std::string args) {
 
     const auto PWINDOWINDIR = g_pCompositor->getWindowInDirection(PWINDOW, dir);
 
-    const bool ISWINDOWGROUP       = PWINDOW->m_group;
+    const bool ISWINDOWGROUP       = !!PWINDOW->m_group;
     const bool ISWINDOWGROUPLOCKED = ISWINDOWGROUP && PWINDOW->m_group->locked();
     const bool ISWINDOWGROUPSINGLE = ISWINDOWGROUP && PWINDOW->m_group->size() == 1;
     const bool ISWINDOWGROUPDENIED = ISWINDOWGROUP && PWINDOW->m_group->denied();

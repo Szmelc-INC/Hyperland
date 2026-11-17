@@ -237,11 +237,11 @@ CColorManagementSurface::CColorManagementSurface(SP<CWpColorManagementSurfaceV1>
     m_imageDescription = DEFAULT_IMAGE_DESCRIPTION;
 
     m_resource->setDestroy([this](CWpColorManagementSurfaceV1* r) {
-        LOGM(Log::TRACE, "Destroy wp cm surface {}", (uintptr_t)m_surface);
+        LOGM(Log::TRACE, "Destroy wp cm surface {}", (uintptr_t)m_surface.get());
         PROTO::colorManagement->destroyResource(this);
     });
     m_resource->setOnDestroy([this](CWpColorManagementSurfaceV1* r) {
-        LOGM(Log::TRACE, "Destroy wp cm surface {}", (uintptr_t)m_surface);
+        LOGM(Log::TRACE, "Destroy wp cm surface {}", (uintptr_t)m_surface.get());
         PROTO::colorManagement->destroyResource(this);
     });
 
@@ -336,11 +336,11 @@ CColorManagementFeedbackSurface::CColorManagementFeedbackSurface(SP<CWpColorMana
     m_client = m_resource->client();
 
     m_resource->setDestroy([this](CWpColorManagementSurfaceFeedbackV1* r) {
-        LOGM(Log::TRACE, "Destroy wp cm feedback surface {}", (uintptr_t)m_surface);
+        LOGM(Log::TRACE, "Destroy wp cm feedback surface {}", (uintptr_t)m_surface.get());
         PROTO::colorManagement->destroyResource(this);
     });
     m_resource->setOnDestroy([this](CWpColorManagementSurfaceFeedbackV1* r) {
-        LOGM(Log::TRACE, "Destroy wp cm feedback surface {}", (uintptr_t)m_surface);
+        LOGM(Log::TRACE, "Destroy wp cm feedback surface {}", (uintptr_t)m_surface.get());
         PROTO::colorManagement->destroyResource(this);
     });
 
