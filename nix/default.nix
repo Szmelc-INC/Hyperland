@@ -81,7 +81,7 @@ in
   assert assertMsg (!legacyRenderer) "The option `legacyRenderer` has been removed. Legacy renderer is no longer supported.";
   assert assertMsg (!withHyprtester) "The option `withHyprtester` has been removed. Hyprtester is always built now.";
     customStdenv.mkDerivation (finalAttrs: {
-      pname = "hyprland${optionalString debug "-debug"}";
+      pname = "hyperland${optionalString debug "-debug"}";
       inherit version withTests;
 
       src = fs.toSource {
@@ -117,6 +117,7 @@ in
         # Remove extra @PREFIX@ to fix some paths
         sed -i "s#@PREFIX@/##g" hyprland.pc.in
         sed -i "s#@PREFIX@/##g" example/hyprland.desktop.in
+        sed -i "s#@PREFIX@/##g" example/hyperland.desktop.in
       '';
 
       env = {
@@ -217,7 +218,7 @@ in
 
       postInstall = ''
         ${optionalString wrapRuntimeDeps ''
-          wrapProgram $out/bin/Hyprland \
+          wrapProgram $out/bin/Hyperland \
             --suffix PATH : ${makeBinPath [
             binutils
             hyprland-guiutils
@@ -235,13 +236,13 @@ in
         ''}
       '';
 
-      passthru.providedSessions = ["hyprland"] ++ optionals withSystemd ["hyprland-uwsm"];
+      passthru.providedSessions = ["hyperland" "hyprland"] ++ optionals withSystemd ["hyperland-uwsm" "hyprland-uwsm"];
 
       meta = {
-        homepage = "https://github.com/hyprwm/Hyprland";
-        description = "Dynamic tiling Wayland compositor that doesn't sacrifice on its looks";
+        homepage = "https://github.com/Szmelc-INC/Hyperland";
+        description = "Pragmatic dynamic tiling Wayland compositor, an independent fork of Hyprland 0.54";
         license = lib.licenses.bsd3;
         platforms = lib.platforms.linux;
-        mainProgram = "Hyprland";
+        mainProgram = "Hyperland";
       };
     })

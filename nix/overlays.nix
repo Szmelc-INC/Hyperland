@@ -45,6 +45,10 @@ in {
       };
       hyprland-unwrapped = final.hyprland.override {wrapRuntimeDeps = false;};
 
+      # Hyperland names (the hyprland ones above stay as aliases)
+      hyperland = final.hyprland;
+      hyperland-unwrapped = final.hyprland-unwrapped;
+
       hyprland-with-tests = final.hyprland.override {withTests = true;};
 
       hyprland-with-hyprtester =

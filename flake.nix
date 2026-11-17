@@ -1,5 +1,5 @@
 {
-  description = "Hyprland is a dynamic tiling Wayland compositor that doesn't sacrifice on its looks";
+  description = "Hyperland: pragmatic dynamic tiling Wayland compositor, an independent fork of Hyprland 0.54";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -153,9 +153,12 @@
       // (import ./nix/tests inputs pkgsFor.${system}));
 
     packages = eachSystem (system: {
-      default = self.packages.${system}.hyprland;
+      default = self.packages.${system}.hyperland;
       inherit
         (pkgsFor.${system})
+        # hyperland names
+        hyperland
+        hyperland-unwrapped
         # hyprland-packages
         hyprland
         hyprland-unwrapped
@@ -168,12 +171,19 @@
       hyprland-debug-cross = (pkgsDebugCrossFor.${system} "aarch64-linux").hyprland-debug;
     });
 
+    apps = eachSystem (system: {
+      default = {
+        type = "app";
+        program = "${self.packages.${system}.hyperland}/bin/Hyperland";
+      };
+    });
+
     devShells = eachSystem (system: {
       default =
         pkgsFor.${system}.mkShell.override {
           inherit (self.packages.${system}.default) stdenv;
         } {
-          name = "hyprland-shell";
+          name = "hyperland-shell";
           hardeningDisable = ["fortify"];
           inputsFrom = [pkgsFor.${system}.hyprland];
           packages = [pkgsFor.${system}.clang-tools];
