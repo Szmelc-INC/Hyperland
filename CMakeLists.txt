@@ -569,10 +569,17 @@ protocolnew("staging/ext-image-copy-capture" "ext-image-copy-capture-v1" false)
 protocolwayland()
 
 # tools
-# Hyperland: install a relative symlink LINK -> TARGET inside DIR (absolute install dir)
+# Hyperland: install a relative symlink LINK -> TARGET inside DIR. A relative DIR is
+# resolved against the install-time prefix, so `cmake --install --prefix` works.
 function(hyperland_install_alias DIR TARGET LINK)
+  if(IS_ABSOLUTE "${DIR}")
+    set(DEST "${DIR}")
+  else()
+    set(DEST "\${CMAKE_INSTALL_PREFIX}/${DIR}")
+  endif()
   install(
-    CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${TARGET} \"\$ENV{DESTDIR}${DIR}/${LINK}\")")
+    CODE "file(MAKE_DIRECTORY \"\$ENV{DESTDIR}${DEST}\")
+    execute_process(COMMAND \"${CMAKE_COMMAND}\" -E create_symlink ${TARGET} \"\$ENV{DESTDIR}${DEST}/${LINK}\")")
 endfunction()
 
 add_subdirectory(hyprctl)
@@ -588,7 +595,7 @@ endif()
 # binary and symlinks (Hyperland, plus every original Hyprland spelling)
 install(TARGETS Hyprland)
 foreach(ALIAS hyperland Hyprland hyprland)
-  hyperland_install_alias(${CMAKE_INSTALL_FULL_BINDIR} Hyperland ${ALIAS})
+  hyperland_install_alias(${CMAKE_INSTALL_BINDIR} Hyperland ${ALIAS})
 endforeach()
 
 # session files: hyperland.desktop is the visible one, hyprland.desktop is kept
@@ -614,7 +621,7 @@ install(FILES ${INSTALLABLE_ASSETS}
 # default config (hyperland.conf, plus hyprland.conf for tools that look for it)
 install(FILES ${CMAKE_SOURCE_DIR}/example/hyperland.conf
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hypr)
-hyperland_install_alias(${CMAKE_INSTALL_FULL_DATAROOTDIR}/hypr hyperland.conf hyprland.conf)
+hyperland_install_alias(${CMAKE_INSTALL_DATAROOTDIR}/hypr hyperland.conf hyprland.conf)
 
 # portal config
 install(FILES ${CMAKE_SOURCE_DIR}/assets/hyprland-portals.conf
@@ -623,13 +630,13 @@ install(FILES ${CMAKE_SOURCE_DIR}/assets/hyprland-portals.conf
 # man pages
 file(GLOB_RECURSE MANPAGES "docs/*.1")
 install(FILES ${MANPAGES} DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
-hyperland_install_alias(${CMAKE_INSTALL_FULL_MANDIR}/man1 Hyprland.1 Hyperland.1)
-hyperland_install_alias(${CMAKE_INSTALL_FULL_MANDIR}/man1 hyprctl.1 hyperctl.1)
+hyperland_install_alias(${CMAKE_INSTALL_MANDIR}/man1 Hyprland.1 Hyperland.1)
+hyperland_install_alias(${CMAKE_INSTALL_MANDIR}/man1 hyprctl.1 hyperctl.1)
 
 # pkgconfig entry (plugins keep using `hyprland`, `hyperland` is the same thing)
 install(FILES ${CMAKE_BINARY_DIR}/hyprland.pc
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
-hyperland_install_alias(${CMAKE_INSTALL_FULL_DATAROOTDIR}/pkgconfig hyprland.pc hyperland.pc)
+hyperland_install_alias(${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig hyprland.pc hyperland.pc)
 
 # protocol headers
 set(HEADERS_PROTO "${CMAKE_CURRENT_SOURCE_DIR}/protocols")

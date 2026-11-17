@@ -33,7 +33,7 @@ target_link_libraries(hyprpm PUBLIC PkgConfig::hyprpm_deps glaze::glaze)
 # binary: hyperpm, with hyprpm as an alias
 set_target_properties(hyprpm PROPERTIES OUTPUT_NAME hyperpm)
 install(TARGETS hyprpm)
-hyperland_install_alias(${CMAKE_INSTALL_FULL_BINDIR} hyperpm hyprpm)
+hyperland_install_alias(${CMAKE_INSTALL_BINDIR} hyperpm hyprpm)
 
 # shell completions
 foreach(NAME hyprpm hyperpm)

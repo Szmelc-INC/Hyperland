@@ -35,7 +35,7 @@ hyprprotocol(hw-protocols hyprpaper_core)
 # binary: hyperctl, with hyprctl as an alias
 set_target_properties(hyprctl PROPERTIES OUTPUT_NAME hyperctl)
 install(TARGETS hyprctl)
-hyperland_install_alias(${CMAKE_INSTALL_FULL_BINDIR} hyperctl hyprctl)
+hyperland_install_alias(${CMAKE_INSTALL_BINDIR} hyperctl hyprctl)
 
 # shell completions
 foreach(NAME hyprctl hyperctl)

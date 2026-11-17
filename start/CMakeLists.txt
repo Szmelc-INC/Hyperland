@@ -38,7 +38,7 @@ target_link_libraries(start-hyprland PUBLIC glaze::glaze)
 # binary: start-hyperland, with start-hyprland as an alias
 set_target_properties(start-hyprland PROPERTIES OUTPUT_NAME start-hyperland)
 install(TARGETS start-hyprland)
-hyperland_install_alias(${CMAKE_INSTALL_FULL_BINDIR} start-hyperland start-hyprland)
+hyperland_install_alias(${CMAKE_INSTALL_BINDIR} start-hyperland start-hyprland)
 
 if(CMAKE_BUILD_TYPE MATCHES Debug OR CMAKE_BUILD_TYPE MATCHES DEBUG)
   set(CMAKE_EXECUTABLE_ENABLE_EXPORTS TRUE)
