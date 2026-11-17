@@ -25,6 +25,7 @@ jobs:
 
       - name: Smoke test and install layout
         run: |
+          export XDG_RUNTIME_DIR="$(mktemp -d)"
           ./build/Hyperland --version
           DESTDIR="$PWD/stage" cmake --install build --prefix /usr
           for f in Hyperland hyperland Hyprland hyprland hyperctl hyprctl hyperpm hyprpm start-hyperland start-hyprland; do
