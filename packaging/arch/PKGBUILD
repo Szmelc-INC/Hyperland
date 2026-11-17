@@ -1,0 +1,116 @@
+# Maintainer: Szmelc-INC <https://github.com/Szmelc-INC>
+#
+# Hyperland: independent fork of Hyprland 0.54. Builds the `main` branch of
+# https://github.com/Szmelc-INC/Hyperland against the system hypr* libraries.
+#
+#   cd packaging/arch && makepkg -si
+
+pkgname=hyperland
+pkgver=0.54.0
+pkgrel=1
+pkgdesc="Pragmatic dynamic tiling Wayland compositor, an independent fork of Hyprland 0.54"
+arch=(x86_64 aarch64)
+url="https://github.com/Szmelc-INC/Hyperland"
+license=(BSD-3-Clause)
+depends=(
+  aquamarine
+  cairo
+  glib2
+  glibc
+  hyprcursor
+  hyprgraphics
+  hyprland-guiutils
+  hyprlang
+  hyprutils
+  hyprwire
+  libdrm
+  libgcc
+  libglvnd
+  libinput
+  libstdc++
+  libxcb
+  libxcursor
+  libxkbcommon
+  mesa
+  muparser
+  pango
+  pixman
+  re2
+  tomlplusplus
+  util-linux-libs
+  wayland
+  xcb-util-errors
+  xcb-util-wm
+  xorg-xwayland
+)
+makedepends=(
+  cmake
+  git
+  hyprwayland-scanner
+  ninja
+  wayland-protocols
+  xorgproto
+)
+optdepends=(
+  'xdg-desktop-portal-hyprland: screen sharing and file pickers'
+  'uwsm: systemd-managed session (hyperland-uwsm.desktop)'
+  'cmake: build plugins with hyperpm (hyprpm)'
+  'cpio: build plugins with hyperpm (hyprpm)'
+  'meson: build plugins with hyperpm (hyprpm)'
+  'pkgconf: build plugins with hyperpm (hyprpm)'
+)
+# Hyperland installs every Hyprland name (Hyprland, hyprctl, hyprpm,
+# start-hyprland, hyprland.desktop, hyprland.pc), so it replaces the official
+# package and satisfies anything that depends on it.
+provides=("hyprland=${pkgver}" wayland-compositor)
+conflicts=(hyprland hyprland-git)
+source=(
+  "${pkgname}::git+${url}.git#branch=main"
+  "git+https://github.com/hyprwm/hyprland-protocols.git"
+  "git+https://github.com/canihavesomecoffee/udis86.git"
+  "git+https://github.com/wolfpld/tracy.git"
+  # 0.54 needs glaze 7.x; Arch ships a newer major
+  "glaze-7.0.0.tar.gz::https://github.com/stephenberry/glaze/archive/refs/tags/v7.0.0.tar.gz"
+)
+sha256sums=(
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  'SKIP'
+  '8a6c67d3b3320017100252ad7a84af4f7eb619421e011b3c860ad71f11f7fac9'
+)
+
+pkgver() {
+  cd "$pkgname"
+  printf '%s.r%s.g%s' \
+    "$(tr -d '[:space:]' < VERSION)" \
+    "$(git rev-list --count v0.54.0..HEAD)" \
+    "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd "$pkgname"
+  git submodule init
+  git config submodule.subprojects/hyprland-protocols.url "$srcdir/hyprland-protocols"
+  git config submodule.subprojects/udis86.url "$srcdir/udis86"
+  git config submodule.subprojects/tracy.url "$srcdir/tracy"
+  git -c protocol.file.allow=always submodule update
+}
+
+build() {
+  cmake -S "$pkgname" -B build -G Ninja \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DFETCHCONTENT_SOURCE_DIR_GLAZE="$srcdir/glaze-7.0.0" \
+    -DFETCHCONTENT_FULLY_DISCONNECTED=ON \
+    -W no-dev
+  cmake --build build
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+  cd "$pkgname"
+  install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname"
+  install -Dm644 README.md -t "$pkgdir/usr/share/doc/$pkgname"
+  install -Dm644 assets/brand/hyperland-256.png "$pkgdir/usr/share/pixmaps/hyperland.png"
+}
