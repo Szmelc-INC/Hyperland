@@ -1420,8 +1420,8 @@ void CHyprOpenGLImpl::renderTextureInternal(SP<CTexture> tex, const CBox& box, c
             const bool  needsSDRmod     = isSDR2HDR(imageDescription->value(), targetImageDescription->value());
             const bool  needsHDRmod     = !needsSDRmod && isHDR2SDR(imageDescription->value(), targetImageDescription->value());
             const float maxLuminance    = needsHDRmod ?
-                   imageDescription->value().getTFMaxLuminance(-1) :
-                   (imageDescription->value().luminances.max > 0 ? imageDescription->value().luminances.max : imageDescription->value().luminances.reference);
+                imageDescription->value().getTFMaxLuminance(-1) :
+                (imageDescription->value().luminances.max > 0 ? imageDescription->value().luminances.max : imageDescription->value().luminances.reference);
             const auto  dstMaxLuminance = targetImageDescription->value().luminances.max > 0 ? targetImageDescription->value().luminances.max : 10000;
 
             if (maxLuminance >= dstMaxLuminance * 1.01)
