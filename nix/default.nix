@@ -218,7 +218,12 @@ in
 
       postInstall = ''
         ${optionalString wrapRuntimeDeps ''
-          wrapProgram $out/bin/Hyperland \
+          # the wrapped binary keeps the Hyprland name, so the process name stays
+          # ".Hyprland-wrapp" as on upstream Nix; Hyperland points at the wrapper
+          rm $out/bin/Hyprland
+          mv $out/bin/Hyperland $out/bin/Hyprland
+          ln -s Hyprland $out/bin/Hyperland
+          wrapProgram $out/bin/Hyprland \
             --suffix PATH : ${makeBinPath [
             binutils
             hyprland-guiutils
