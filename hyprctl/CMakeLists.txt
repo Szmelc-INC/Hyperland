@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.19)
 
 project(
     hyprctl
-    DESCRIPTION "Control utility for Hyprland"
+    DESCRIPTION "Control utility for Hyperland"
 )
 
 pkg_check_modules(hyprctl_deps REQUIRED IMPORTED_TARGET hyprutils>=0.2.4 hyprwire re2)
@@ -32,14 +32,18 @@ endfunction()
 
 hyprprotocol(hw-protocols hyprpaper_core)
 
-# binary
+# binary: hyperctl, with hyprctl as an alias
+set_target_properties(hyprctl PROPERTIES OUTPUT_NAME hyperctl)
 install(TARGETS hyprctl)
+hyperland_install_alias(${CMAKE_INSTALL_FULL_BINDIR} hyperctl hyprctl)
 
 # shell completions
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprctl.bash
-        DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions
-        RENAME hyprctl)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprctl.fish
+foreach(NAME hyprctl hyperctl)
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprctl.bash
+          DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions
+          RENAME ${NAME})
+endforeach()
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprctl.fish ${CMAKE_CURRENT_SOURCE_DIR}/hyperctl.fish
         DESTINATION ${CMAKE_INSTALL_DATADIR}/fish/vendor_completions.d)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprctl.zsh
         DESTINATION ${CMAKE_INSTALL_DATADIR}/zsh/site-functions

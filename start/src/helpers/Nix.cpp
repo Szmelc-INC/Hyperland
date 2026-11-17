@@ -75,7 +75,7 @@ std::expected<void, std::string> Nix::nixEnvironmentOk() {
 
     if (!executableExistsInPath("nixGL"))
         return std::unexpected(
-            "Hyprland was installed using Nix, but you're not on NixOS. This requires nixGL to be installed as well.\nYou can install nixGL by running \"nix profile install "
+            "Hyperland was installed using Nix, but you're not on NixOS. This requires nixGL to be installed as well.\nYou can install nixGL by running \"nix profile install "
             "github:guibou/nixGL --impure\" in your terminal.");
 
     return {};

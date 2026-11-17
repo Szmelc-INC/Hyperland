@@ -7,6 +7,10 @@
 #include <vector>
 #include <string>
 #include <print>
+#include <utility>
+#include <cstdlib>
+
+extern char** environ;
 
 #include <hyprutils/utils/ScopeGuard.hpp>
 using namespace Hyprutils::Utils;
@@ -36,7 +40,24 @@ constexpr std::string_view HELP = R"#(┏ hyprpm, a Hyprland Plugin Manager
 ┗
 )#";
 
-int                        main(int argc, char** argv, char** envp) {
+// Hyperland: every HYPERLAND_FOO=bar in the environment also provides HYPRLAND_FOO=bar
+// (unless that is already set), so both spellings of every variable keep working.
+static void mirrorHyperlandEnv() {
+    std::vector<std::pair<std::string, std::string>> twins;
+    for (char** e = environ; e && *e; ++e) {
+        const std::string_view kv = *e;
+        const auto             eq = kv.find('=');
+        if (!kv.starts_with("HYPERLAND_") || eq == std::string_view::npos)
+            continue;
+        twins.emplace_back("HYPRLAND_" + std::string{kv.substr(10, eq - 10)}, std::string{kv.substr(eq + 1)});
+    }
+    for (const auto& [k, v] : twins) {
+        setenv(k.c_str(), v.c_str(), 0);
+    }
+}
+
+int main(int argc, char** argv, char** envp) {
+    mirrorHyperlandEnv();
     std::vector<std::string> ARGS{argc};
     for (int i = 0; i < argc; ++i) {
         ARGS[i] = std::string{argv[i]};
@@ -152,7 +173,7 @@ int                        main(int argc, char** argv, char** envp) {
             auto ret2 = g_pPluginManager->ensurePluginsLoadState();
 
             if (ret2 == LOADSTATE_HYPRLAND_UPDATED)
-                g_pPluginManager->notify(ICON_INFO, 0, 10000, "[hyprpm] Updated plugins, but Hyprland was updated. Please restart Hyprland.");
+                g_pPluginManager->notify(ICON_INFO, 0, 10000, "[hyprpm] Updated plugins, but Hyperland was updated. Please restart Hyperland.");
 
             if (ret2 != LOADSTATE_OK)
                 return 1;
@@ -176,7 +197,7 @@ int                        main(int argc, char** argv, char** envp) {
         auto        ret = g_pPluginManager->ensurePluginsLoadState();
 
         if (ret == LOADSTATE_HYPRLAND_UPDATED)
-            g_pPluginManager->notify(ICON_INFO, 0, 10000, "[hyprpm] Enabled plugin, but Hyprland was updated. Please restart Hyprland.");
+            g_pPluginManager->notify(ICON_INFO, 0, 10000, "[hyprpm] Enabled plugin, but Hyperland was updated. Please restart Hyperland.");
 
         if (ret != LOADSTATE_OK)
             return 1;

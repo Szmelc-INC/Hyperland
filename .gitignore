@@ -45,6 +45,7 @@ src/version.h
 hyprpm/Makefile
 hyprctl/Makefile
 example/hyprland.desktop
+example/hyperland.desktop
 
 **/.#*.*
 **/#*.*#

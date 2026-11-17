@@ -283,6 +283,12 @@ endif()
 add_library(hyprland_lib STATIC ${SRCFILES})
 add_executable(Hyprland src/main.cpp ${TRACY_CPP_FILES})
 target_link_libraries(Hyprland hyprland_lib)
+# the binary is called Hyperland; Hyprland stays available as an alias
+set_target_properties(Hyprland PROPERTIES OUTPUT_NAME Hyperland)
+add_custom_command(
+  TARGET Hyprland
+  POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E create_symlink Hyperland ${CMAKE_BINARY_DIR}/Hyprland)
 
 target_include_directories(hyprland_lib PUBLIC ${deps_INCLUDE_DIRS})
 target_include_directories(Hyprland PUBLIC ${deps_INCLUDE_DIRS})
@@ -391,7 +397,8 @@ else()
     message(STATUS "UWSM support is disabled...")
   else()
     message(STATUS "UWSM support is enabled (NO_UWSM not defined)...")
-    install(FILES ${CMAKE_SOURCE_DIR}/systemd/hyprland-uwsm.desktop
+    install(FILES ${CMAKE_SOURCE_DIR}/systemd/hyperland-uwsm.desktop
+                  ${CMAKE_SOURCE_DIR}/systemd/hyprland-uwsm.desktop
             DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/wayland-sessions)
   endif()
 endif()
@@ -562,6 +569,12 @@ protocolnew("staging/ext-image-copy-capture" "ext-image-copy-capture-v1" false)
 protocolwayland()
 
 # tools
+# Hyperland: install a relative symlink LINK -> TARGET inside DIR (absolute install dir)
+function(hyperland_install_alias DIR TARGET LINK)
+  install(
+    CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${TARGET} \"\$ENV{DESTDIR}${DIR}/${LINK}\")")
+endfunction()
+
 add_subdirectory(hyprctl)
 add_subdirectory(start)
 
@@ -572,23 +585,23 @@ else()
   message(STATUS "hyprpm is enabled (NO_HYPRPM not defined)")
 endif()
 
-# binary and symlink
+# binary and symlinks (Hyperland, plus every original Hyprland spelling)
 install(TARGETS Hyprland)
+foreach(ALIAS hyperland Hyprland hyprland)
+  hyperland_install_alias(${CMAKE_INSTALL_FULL_BINDIR} Hyperland ${ALIAS})
+endforeach()
 
-install(
-  CODE "execute_process( \
-        COMMAND ${CMAKE_COMMAND} -E create_symlink \
-        ${CMAKE_INSTALL_FULL_BINDIR}/Hyprland \
-        \"\$ENV{DESTDIR}${CMAKE_INSTALL_FULL_BINDIR}/hyprland\" \
-        )")
-# session file
-configure_file(
-    ${CMAKE_SOURCE_DIR}/example/hyprland.desktop.in
-    ${CMAKE_SOURCE_DIR}/example/hyprland.desktop
-    @ONLY
-)
-install(FILES ${CMAKE_SOURCE_DIR}/example/hyprland.desktop
-        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/wayland-sessions)
+# session files: hyperland.desktop is the visible one, hyprland.desktop is kept
+# (hidden) so existing autologin / uwsm setups keep working
+foreach(SESSION hyperland hyprland)
+  configure_file(
+      ${CMAKE_SOURCE_DIR}/example/${SESSION}.desktop.in
+      ${CMAKE_SOURCE_DIR}/example/${SESSION}.desktop
+      @ONLY
+  )
+  install(FILES ${CMAKE_SOURCE_DIR}/example/${SESSION}.desktop
+          DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/wayland-sessions)
+endforeach()
 
 # allow Hyprland to find assets
 add_compile_definitions(DATAROOTDIR="${CMAKE_INSTALL_FULL_DATAROOTDIR}")
@@ -598,9 +611,10 @@ file(GLOB_RECURSE INSTALLABLE_ASSETS "assets/install/*")
 install(FILES ${INSTALLABLE_ASSETS}
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hypr)
 
-# default config
-install(FILES ${CMAKE_SOURCE_DIR}/example/hyprland.conf
+# default config (hyperland.conf, plus hyprland.conf for tools that look for it)
+install(FILES ${CMAKE_SOURCE_DIR}/example/hyperland.conf
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/hypr)
+hyperland_install_alias(${CMAKE_INSTALL_FULL_DATAROOTDIR}/hypr hyperland.conf hyprland.conf)
 
 # portal config
 install(FILES ${CMAKE_SOURCE_DIR}/assets/hyprland-portals.conf
@@ -609,10 +623,13 @@ install(FILES ${CMAKE_SOURCE_DIR}/assets/hyprland-portals.conf
 # man pages
 file(GLOB_RECURSE MANPAGES "docs/*.1")
 install(FILES ${MANPAGES} DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
+hyperland_install_alias(${CMAKE_INSTALL_FULL_MANDIR}/man1 Hyprland.1 Hyperland.1)
+hyperland_install_alias(${CMAKE_INSTALL_FULL_MANDIR}/man1 hyprctl.1 hyperctl.1)
 
-# pkgconfig entry
+# pkgconfig entry (plugins keep using `hyprland`, `hyperland` is the same thing)
 install(FILES ${CMAKE_BINARY_DIR}/hyprland.pc
         DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
+hyperland_install_alias(${CMAKE_INSTALL_FULL_DATAROOTDIR}/pkgconfig hyprland.pc hyperland.pc)
 
 # protocol headers
 set(HEADERS_PROTO "${CMAKE_CURRENT_SOURCE_DIR}/protocols")

@@ -4,7 +4,7 @@
 
 hyprctl [<OPTIONS>]... <ARGUMENTS>
 
-<OPTIONS>  ::=  (-i | --instance)                                     "Specify the Hyprland instance"
+<OPTIONS>  ::=  (-i | --instance)                                     "Specify the Hyperland instance"
             |   (-j)                                                  "Output in JSON format"
             |   (-r)                                                  "Refresh state after issuing the command"
             |   (--batch)                                             "Execute a batch of commands separated by ;"
@@ -73,13 +73,13 @@ hyprctl [<OPTIONS>]... <ARGUMENTS>
             |   (getoption)                                           "Get the config option status (values)"
             |   (globalshortcuts)                                     "Lists all global shortcuts"
             |   (hyprpaper)                                           "Interact with hyprpaper if present"
-            |   (instances)                                           "List all running Hyprland instances and their info"
+            |   (instances)                                           "List all running Hyperland instances and their info"
             |   (keyword <KEYWORDS>)                                  "Issue a keyword to call a config keyword dynamically"
             |   (kill)                                                "Get into a kill mode, where you can kill an app by clicking on it"
             |   (layers)                                              "List the layers"
             |   (layouts)                                             "List all layouts available (including plugin ones)"
             |   (monitors [all])                                      "List active outputs with their properties"
-            |   (notify <NOTIFICATION_TYPES> <NUM>)                   "Send a notification using the built-in Hyprland notification system"
+            |   (notify <NOTIFICATION_TYPES> <NUM>)                   "Send a notification using the built-in Hyperland notification system"
             |   (output (create (wayland | x11 | headless | auto) | remove <MONITORS>)) "Allows adding/removing fake outputs to a specific backend"
             |   (plugin <AVAILABLE_PLUGINS>)                          "Interact with a plugin"
             |   (reload [config-only])                                "Force reload the config"
@@ -90,7 +90,7 @@ hyprctl [<OPTIONS>]... <ARGUMENTS>
             |   (splash)                                              "Print the current random splash"
             |   (switchxkblayout <KEYBOARDS> (next | prev | <NUM>))   "Set the xkb layout index for a keyboard"
             |   (systeminfo)                                          "Print system info"
-            |   (version)                                             "Print the Hyprland version: flags, commit and branch of build"
+            |   (version)                                             "Print the Hyperland version: flags, commit and branch of build"
             |   (workspacerules)                                      "Get the list of defined workspace rules"
             |   (workspaces)                                          "List all workspaces with their properties"
             ;

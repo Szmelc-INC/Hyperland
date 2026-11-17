@@ -322,7 +322,7 @@ static uintptr_t seekNewPageAddr() {
             continue;
         }
 
-        if (!anchoredToHyprland && line.contains("Hyprland")) {
+        if (!anchoredToHyprland && (line.contains("Hyprland") || line.contains("Hyperland"))) {
             Log::logger->log(Log::DEBUG, "seekNewPageAddr: Anchored to hyprland at 0x{:x}", start);
             anchoredToHyprland = true;
         } else if (start - lastEnd > PAGESIZE_VAR * 2) {

@@ -25,17 +25,17 @@ using namespace Hyprutils::Memory;
 #include <filesystem>
 
 static void help() {
-    std::println("usage: Hyprland [arg [...]].\n");
+    std::println("usage: Hyperland [arg [...]].\n");
     std::println(R"#(Arguments:
     --help              -h       - Show this message again
     --config FILE       -c FILE  - Specify config file to use
     --socket NAME                - Sets the Wayland socket name (for Wayland socket handover)
     --wayland-fd FD              - Sets the Wayland socket fd (for Wayland socket handover)
-    --watchdog-fd FD             - Used by start-hyprland
-    --safe-mode                  - Starts Hyprland in safe mode
+    --watchdog-fd FD             - Used by start-hyperland (start-hyprland)
+    --safe-mode                  - Starts Hyperland in safe mode
     --systeminfo                 - Prints system infos
     --i-am-really-stupid         - Omits root user privileges check (why would you do that?)
-    --verify-config              - Do not run Hyprland, only print if the config has any errors
+    --verify-config              - Do not run Hyperland, only print if the config has any errors
     --version           -v       - Print this binary's version
     --version-json               - Print this binary's version as json)#");
 }
@@ -56,12 +56,15 @@ int main(int argc, char** argv) {
     if (!getenv("XDG_RUNTIME_DIR"))
         throwError("XDG_RUNTIME_DIR is not set!");
 
-    // export HYPRLAND_CMD
+    Env::mirrorHyperlandEnv();
+
+    // export HYPRLAND_CMD (and HYPERLAND_CMD)
     std::string cmd = argv[0];
     for (int i = 1; i < argc; ++i)
         cmd += std::string(" ") + argv[i];
 
     setenv("HYPRLAND_CMD", cmd.c_str(), 1);
+    setenv("HYPERLAND_CMD", cmd.c_str(), 1);
     setenv("XDG_BACKEND", "wayland", 1);
     setenv("XDG_SESSION_TYPE", "wayland", 1);
     setenv("_JAVA_AWT_WM_NONREPARENTING", "1", 1);
@@ -81,7 +84,7 @@ int main(int argc, char** argv) {
             std::string_view value = *it;
 
             if (value == "--i-am-really-stupid" && !ignoreSudo) {
-                std::println("[ WARNING ] Running Hyprland with superuser privileges might damage your system");
+                std::println("[ WARNING ] Running Hyperland with superuser privileges might damage your system");
 
                 ignoreSudo = true;
             } else if (value == "--socket") {
@@ -184,7 +187,7 @@ int main(int argc, char** argv) {
 
     if (!ignoreSudo && NInit::isSudo()) {
         std::println(stderr,
-                     "[ ERROR ] Hyprland was launched with superuser privileges, but the privileges check is not omitted.\n"
+                     "[ ERROR ] Hyperland was launched with superuser privileges, but the privileges check is not omitted.\n"
                      "          Hint: Use the --i-am-really-stupid flag to omit that check.");
 
         return 1;
@@ -193,14 +196,14 @@ int main(int argc, char** argv) {
 
     if (socketName.empty() ^ (socketFd == -1)) {
         std::println(stderr,
-                     "[ ERROR ] Hyprland was launched with only one of --socket and --wayland-fd.\n"
+                     "[ ERROR ] Hyperland was launched with only one of --socket and --wayland-fd.\n"
                      "          Hint: Pass both --socket and --wayland-fd to perform Wayland socket handover.");
 
         return 1;
     }
 
     if (!verifyConfig)
-        std::println("Welcome to Hyprland!");
+        std::println("Welcome to Hyperland!");
 
     // let's init the compositor.
     // it initializes basic Wayland stuff in the constructor.
@@ -208,7 +211,7 @@ int main(int argc, char** argv) {
         g_pCompositor                       = makeUnique<CCompositor>(verifyConfig);
         g_pCompositor->m_explicitConfigPath = configPath;
     } catch (const std::exception& e) {
-        std::println(stderr, "Hyprland threw in ctor: {}\nCannot continue.", e.what());
+        std::println(stderr, "Hyperland threw in ctor: {}\nCannot continue.", e.what());
         return 1;
     }
 
@@ -222,7 +225,7 @@ int main(int argc, char** argv) {
         g_pCompositor->m_safeMode = true;
 
     if (!watchdogOk && !verifyConfig)
-        Log::logger->log(Log::WARN, "WARNING: Hyprland is being launched without start-hyprland. This is highly advised against.");
+        Log::logger->log(Log::WARN, "WARNING: Hyperland is being launched without start-hyperland. This is highly advised against.");
 
     g_pCompositor->initServer(socketName, socketFd);
 
@@ -232,7 +235,7 @@ int main(int argc, char** argv) {
     if (!Env::envEnabled("HYPRLAND_NO_RT"))
         NInit::gainRealTime();
 
-    Log::logger->log(Log::DEBUG, "Hyprland init finished.");
+    Log::logger->log(Log::DEBUG, "Hyperland init finished.");
 
     // If all's good to go, start.
     g_pCompositor->startCompositor();
@@ -241,7 +244,7 @@ int main(int argc, char** argv) {
 
     g_pCompositor.reset();
 
-    Log::logger->log(Log::DEBUG, "Hyprland has reached the end.");
+    Log::logger->log(Log::DEBUG, "Hyperland has reached the end.");
 
     return EXIT_SUCCESS;
 }

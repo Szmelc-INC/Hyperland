@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Hyperland
+Comment=Pragmatic dynamic tiling Wayland compositor (independent fork of Hyprland 0.54)
+Exec=@PREFIX@/@CMAKE_INSTALL_BINDIR@/start-hyperland
+Type=Application
+DesktopNames=Hyprland
+Keywords=tiling;wayland;compositor;hyperland;hyprland;

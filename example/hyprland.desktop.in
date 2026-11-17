@@ -1,7 +1,8 @@
 [Desktop Entry]
-Name=Hyprland
-Comment=An intelligent dynamic tiling Wayland compositor
-Exec=@PREFIX@/@CMAKE_INSTALL_BINDIR@/start-hyprland
+Name=Hyprland (Hyperland compatibility entry)
+Comment=Kept so existing hyprland.desktop autologin setups keep working; use Hyperland
+Exec=@PREFIX@/@CMAKE_INSTALL_BINDIR@/start-hyperland
 Type=Application
 DesktopNames=Hyprland
+NoDisplay=true
 Keywords=tiling;wayland;compositor;

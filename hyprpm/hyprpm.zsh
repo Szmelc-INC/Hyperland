@@ -1,4 +1,4 @@
-#compdef hyprpm
+#compdef hyprpm hyperpm
 
 _hyprpm_cmd_0 () {
     hyprpm list | awk '/Plugin/{print $4}'
@@ -12,7 +12,7 @@ _hyprpm () {
     local -a literals=("--no-shallow" "-n" "::=" "disable" "list" "--help" "update" "add" "--verbose" "-v" "--force" "-s" "remove" "enable" "--notify" "-h" "reload" "-f")
 
     local -A descriptions
-    descriptions[1]="Disable shallow cloning of Hyprland sources"
+    descriptions[1]="Disable shallow cloning of Hyperland sources"
     descriptions[2]="Send a hyprland notification for important events (e.g. load fail)"
     descriptions[4]="Unload a plugin"
     descriptions[5]="List all installed plugins"
@@ -22,7 +22,7 @@ _hyprpm () {
     descriptions[9]="Enable too much logging"
     descriptions[10]="Enable too much logging"
     descriptions[11]="Force an operation ignoring checks (e.g. update -f)"
-    descriptions[12]="Disable shallow cloning of Hyprland sources"
+    descriptions[12]="Disable shallow cloning of Hyperland sources"
     descriptions[13]="Remove a plugin repository"
     descriptions[14]="Load a plugin"
     descriptions[15]="Send a hyprland notification for important events (e.g. load fail)"
@@ -151,7 +151,7 @@ _hyprpm () {
 }
 
 if [[ $ZSH_EVAL_CONTEXT =~ :file$ ]]; then
-    compdef _hyprpm hyprpm
+    compdef _hyprpm hyprpm hyperpm
 else
     _hyprpm
 fi

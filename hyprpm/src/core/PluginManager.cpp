@@ -79,7 +79,7 @@ SHyprlandVersion CPluginManager::getHyprlandVersion(bool running) {
     else
         onceInstalled = true;
 
-    const auto HLVERCALL = running ? NHyprlandSocket::send("j/version") : execAndGet("Hyprland --version-json");
+    const auto HLVERCALL = running ? NHyprlandSocket::send("j/version") : execAndGet("Hyperland --version-json");
 
     auto       jsonQuery = glz::read_json<glz::generic>(HLVERCALL);
 
@@ -289,7 +289,7 @@ bool CPluginManager::addNewPluginRepo(const std::string& url, const std::string&
     }
 
     progress.m_iSteps = 3;
-    progress.printMessageAbove(successString("Hyprland headers OK"));
+    progress.printMessageAbove(successString("Hyperland headers OK"));
     progress.m_szCurrentMessage = "Building plugin(s)";
     progress.print();
 
@@ -297,7 +297,7 @@ bool CPluginManager::addNewPluginRepo(const std::string& url, const std::string&
         std::string out;
 
         if (p.since > HLVER.commits && HLVER.commits >= 1 /* for --depth 1 clones, we can't check this. */) {
-            progress.printMessageAbove(failureString("Not building {}: your Hyprland version is too old.\n", p.name));
+            progress.printMessageAbove(failureString("Not building {}: your Hyperland version is too old.\n", p.name));
             p.failed = true;
             continue;
         }
@@ -489,7 +489,7 @@ bool CPluginManager::updateHeaders(bool force) {
         return false;
     }
 
-    const auto& HL_URL = m_szCustomHlUrl.empty() ? "https://github.com/hyprwm/Hyprland" : m_szCustomHlUrl;
+    const auto& HL_URL = m_szCustomHlUrl.empty() ? "https://github.com/Szmelc-INC/Hyperland" : m_szCustomHlUrl;
 
     progress.printMessageAbove(statusString("!", Colors::YELLOW, "Cloning {}, this might take a moment.", HL_URL));
 
@@ -511,11 +511,11 @@ bool CPluginManager::updateHeaders(bool force) {
     }
 
     if (!std::filesystem::exists(WORKINGDIR + "/.git")) {
-        std::println(stderr, "\n{}", failureString("Could not clone the Hyprland repository. shell returned:\n{}", ret));
+        std::println(stderr, "\n{}", failureString("Could not clone the Hyperland repository. shell returned:\n{}", ret));
         return false;
     }
 
-    progress.printMessageAbove(successString("Hyprland cloned"));
+    progress.printMessageAbove(successString("Hyperland cloned"));
     progress.m_iSteps           = 2;
     progress.m_szCurrentMessage = "Checking out sources";
     progress.print();
@@ -527,7 +527,7 @@ bool CPluginManager::updateHeaders(bool force) {
 
     if (ret.contains("fatal: unable to read tree")) {
         std::println(stderr, "\n{}",
-                     failureString("Could not checkout the running Hyprland commit. If you are on -git, try updating.\n"
+                     failureString("Could not checkout the running Hyperland commit. If you are on -git, try updating.\n"
                                    "You can also try re-running hyprpm update with --no-shallow."));
         return false;
     }
@@ -542,10 +542,10 @@ bool CPluginManager::updateHeaders(bool force) {
 
     progress.printMessageAbove(successString("checked out to running ver"));
     progress.m_iSteps           = 3;
-    progress.m_szCurrentMessage = "Building Hyprland";
+    progress.m_szCurrentMessage = "Building Hyperland";
     progress.print();
 
-    progress.printMessageAbove(statusString("!", Colors::YELLOW, "configuring Hyprland"));
+    progress.printMessageAbove(statusString("!", Colors::YELLOW, "configuring Hyperland"));
 
     if (m_bVerbose)
         progress.printMessageAbove(verboseString("setting PREFIX for cmake to {}", DataState::getHeadersPath()));
@@ -578,7 +578,7 @@ bool CPluginManager::updateHeaders(bool force) {
         return false;
     }
 
-    progress.printMessageAbove(successString("configured Hyprland"));
+    progress.printMessageAbove(successString("configured Hyperland"));
     progress.m_iSteps           = 4;
     progress.m_szCurrentMessage = "Installing sources";
     progress.print();
@@ -750,7 +750,7 @@ bool CPluginManager::updatePlugins(bool forceUpdateAll) {
             std::string out;
 
             if (p.since > HLVER.commits && HLVER.commits >= 1000 /* for shallow clones, we can't check this. 1000 is an arbitrary number I chose. */) {
-                progress.printMessageAbove(failureString("Not building {}: your Hyprland version is too old.\n", p.name));
+                progress.printMessageAbove(failureString("Not building {}: your Hyperland version is too old.\n", p.name));
                 p.failed = true;
                 continue;
             }
@@ -909,7 +909,7 @@ ePluginLoadStateReturn CPluginManager::ensurePluginsLoadState(bool forceReload) 
         if (forceReload || !enabled(p)) {
             // unload
             if (!loadUnloadPlugin(HYPRPMPATH / repoForName(p) / (p + ".so"), false)) {
-                std::println("{}", infoString("{} will be unloaded after restarting Hyprland", p));
+                std::println("{}", infoString("{} will be unloaded after restarting Hyperland", p));
                 hyprlandVersionMismatch = true;
             } else
                 std::println("{}", successString("Unloaded {}", p));
@@ -926,7 +926,7 @@ ePluginLoadStateReturn CPluginManager::ensurePluginsLoadState(bool forceReload) 
                 continue;
 
             if (!loadUnloadPlugin(HYPRPMPATH / repoForName(p.name) / p.filename, true)) {
-                std::println("{}", infoString("{} will be loaded after restarting Hyprland", p.name));
+                std::println("{}", infoString("{} will be loaded after restarting Hyperland", p.name));
                 hyprlandVersionMismatch = true;
             } else
                 std::println("{}", successString("Loaded {}", p.name));
@@ -944,7 +944,7 @@ bool CPluginManager::loadUnloadPlugin(const std::string& path, bool load) {
 
     if (state.headersAbiCompiled != HLVER.abiHash) {
         if (load)
-            std::println("{}", infoString("Running Hyprland version ({}) differs from plugin state ({}), please restart Hyprland.", HLVER.hash, state.headersAbiCompiled));
+            std::println("{}", infoString("Running Hyperland version ({}) differs from plugin state ({}), please restart Hyperland.", HLVER.hash, state.headersAbiCompiled));
         return false;
     }
 
@@ -1001,7 +1001,7 @@ std::string CPluginManager::headerErrorShort(const eHeadersErrors err) {
     switch (err) {
         case HEADERS_CORRUPTED: return "Headers corrupted";
         case HEADERS_MISMATCHED: return "Headers version mismatched";
-        case HEADERS_NOT_HYPRLAND: return "Not running on Hyprland";
+        case HEADERS_NOT_HYPRLAND: return "Not running on Hyperland";
         case HEADERS_MISSING: return "Headers missing";
         case HEADERS_DUPLICATED: return "Headers duplicated";
         default: break;
@@ -1079,10 +1079,18 @@ static std::expected<std::string, std::string> getNixDevelopFromProfile() {
     if (!json.contains("elements") || !json["elements"].is_object())
         return std::unexpected("nix profile list --json returned a wonky json");
 
-    if (!json["elements"].contains("hyprland") && !json["elements"].contains("Hyprland"))
-        return std::unexpected("nix profile list --json doesn't contain Hyprland (did you uninstall?)");
+    // Hyperland: accept the profile element under any of its names
+    const char* elementName = nullptr;
+    for (const auto* name : {"hyperland", "Hyperland", "hyprland", "Hyprland"}) {
+        if (json["elements"].contains(name)) {
+            elementName = name;
+            break;
+        }
+    }
+    if (!elementName)
+        return std::unexpected("nix profile list --json doesn't contain Hyperland (did you uninstall?)");
 
-    auto& hyprlandJson = json["elements"].contains("hyprland") ? json["elements"]["hyprland"] : json["elements"]["Hyprland"];
+    auto& hyprlandJson = json["elements"][elementName];
 
     if (!hyprlandJson.contains("originalUrl"))
         return std::unexpected("nix profile list --json's hyprland doesn't contain originalUrl?");

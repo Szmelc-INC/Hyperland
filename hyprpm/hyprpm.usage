@@ -5,7 +5,7 @@ hyprpm [<FLAGS>]... <ARGUMENT>
         |   (--help | -h)               "Show help menu"
         |   (--verbose | -v)            "Enable too much logging"
         |   (--force | -f)              "Force an operation ignoring checks (e.g. update -f)"
-        |   (--no-shallow | -s)         "Disable shallow cloning of Hyprland sources"
+        |   (--no-shallow | -s)         "Disable shallow cloning of Hyperland sources"
         ;
 
 <ARGUMENT> ::= (add)                    "Install a new plugin repository from git"

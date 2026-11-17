@@ -38,7 +38,7 @@ std::string NHyprlandSocket::send(const std::string& cmd) {
     const auto HIS = getenv("HYPRLAND_INSTANCE_SIGNATURE");
 
     if (!HIS) {
-        std::println("{}", failureString("HYPRLAND_INSTANCE_SIGNATURE was not set! (Is Hyprland running?) (3)"));
+        std::println("{}", failureString("HYPRLAND_INSTANCE_SIGNATURE was not set! (Is Hyperland running?) (3)"));
         return "";
     }
 

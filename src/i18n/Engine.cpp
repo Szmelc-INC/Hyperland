@@ -33,7 +33,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("be_BY", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Выяўленая новая клавіятура: <b>{keyboard}</b>.\n\nХочаце дазволіць яе выкарыстанне?");
     huEngine->registerEntry("be_BY", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(невядома)");
     huEngine->registerEntry("be_BY", TXT_KEY_PERMISSION_TITLE, "Запыт дазволу");
-    huEngine->registerEntry("be_BY", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Падказка: вы можаце задаць пастаянныя правілы для гэтага ў файле канфігурацыі Hyprland.");
+    huEngine->registerEntry("be_BY", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Падказка: вы можаце задаць пастаянныя правілы для гэтага ў файле канфігурацыі Hyperland.");
     huEngine->registerEntry("be_BY", TXT_KEY_PERMISSION_ALLOW, "Дазволіць");
     huEngine->registerEntry("be_BY", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Дазволіць і запомніць");
     huEngine->registerEntry("be_BY", TXT_KEY_PERMISSION_ALLOW_ONCE, "Дазволіць аднойчы");
@@ -48,8 +48,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("be_BY", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland не змог загрузіць {count} важны рэсурс, вінавацьце ў гэтым адказнага за зборку пакетаў для свайго дыстрыбутыва!";
-        return "Hyprland не змог загрузіць {count} важных рэсурсаў, вінавацьце ў гэтым адказнага за зборку пакетаў для свайго дыстрыбутыва!";
+            return "Hyperland не змог загрузіць {count} важны рэсурс, вінавацьце ў гэтым адказнага за зборку пакетаў для свайго дыстрыбутыва!";
+        return "Hyperland не змог загрузіць {count} важных рэсурсаў, вінавацьце ў гэтым адказнага за зборку пакетаў для свайго дыстрыбутыва!";
     });
     huEngine->registerEntry("be_BY", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Макет манітораў наладжаны некарэктна. Манітор {name} накладаецца на іншы(я) манітор(ы).\nДля падрабязнасцей звярніцеся да Wiki (Старонка Monitors). "
@@ -74,7 +74,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("bn_BD", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "একটি নতুন কীবোর্ড সনাক্ত করা হয়েছে: <b>{keyboard}</b>।\n\nআপনি কি এটি কাজ করতে অনুমতি দিতে চান?");
     huEngine->registerEntry("bn_BD", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(অজানা)");
     huEngine->registerEntry("bn_BD", TXT_KEY_PERMISSION_TITLE, "অনুমতির অনুরোধ");
-    huEngine->registerEntry("bn_BD", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "টিপ: আপনি Hyprland কনফিগারেশন ফাইলে এর জন্য স্থায়ী নিয়ম সেট করতে পারেন।");
+    huEngine->registerEntry("bn_BD", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "টিপ: আপনি Hyperland কনফিগারেশন ফাইলে এর জন্য স্থায়ী নিয়ম সেট করতে পারেন।");
     huEngine->registerEntry("bn_BD", TXT_KEY_PERMISSION_ALLOW, "অনুমতি দিন");
     huEngine->registerEntry("bn_BD", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "অনুমতি দিন এবং মনে রাখুন");
     huEngine->registerEntry("bn_BD", TXT_KEY_PERMISSION_ALLOW_ONCE, "একবার অনুমতি দিন");
@@ -88,8 +88,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("bn_BD", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland {count}টি প্রয়োজনীয় সম্পদ লোড করতে ব্যর্থ হয়েছে, খারাপ প্যাকেজিং কাজের জন্য আপনার ডিস্ট্রো প্যাকেজারদের দোষ দিন!";
-        return "Hyprland {count}টি প্রয়োজনীয় সম্পদ লোড করতে ব্যর্থ হয়েছে, খারাপ প্যাকেজিং কাজের জন্য আপনার ডিস্ট্রো প্যাকেজারদের দোষ দিন!";
+            return "Hyperland {count}টি প্রয়োজনীয় সম্পদ লোড করতে ব্যর্থ হয়েছে, খারাপ প্যাকেজিং কাজের জন্য আপনার ডিস্ট্রো প্যাকেজারদের দোষ দিন!";
+        return "Hyperland {count}টি প্রয়োজনীয় সম্পদ লোড করতে ব্যর্থ হয়েছে, খারাপ প্যাকেজিং কাজের জন্য আপনার ডিস্ট্রো প্যাকেজারদের দোষ দিন!";
     });
     huEngine->registerEntry("bn_BD", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "আপনার মনিটর লেআউট ভুলভাবে কনফিগার করা হয়েছে। মনিটর {name} লেআউটে অন্য মনিটর(গুলি) এর সাথে ওভারল্যাপ করছে।\nবিস্তারিত জানতে wiki (Monitors page) দেখুন। "
@@ -99,12 +99,12 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("bn_BD", TXT_KEY_NOTIF_FAILED_TO_LOAD_PLUGIN, "প্লাগইন {name} লোড করতে ব্যর্থ: {error}");
     huEngine->registerEntry("bn_BD", TXT_KEY_NOTIF_CM_RELOAD_FAILED, "CM শেডার পুনরায় লোড করতে ব্যর্থ, rgba/rgbx এ ফিরে যাচ্ছে।");
     huEngine->registerEntry("bn_BD", TXT_KEY_NOTIF_WIDE_COLOR_NOT_10B, "মনিটর {name}: ওয়াইড কালার গ্যামুট সক্রিয় কিন্তু স্ক্রিন 10-বিট মোডে নেই।");
-    huEngine->registerEntry("bn_BD", TXT_KEY_NOTIF_NO_WATCHDOG, "Hyprland start-hyprland ছাড়া চালু করা হয়েছে। এটি অত্যন্ত সুপারিশকৃত নয় যদি না আপনি ডিবাগিং পরিবেশে থাকেন।");
+    huEngine->registerEntry("bn_BD", TXT_KEY_NOTIF_NO_WATCHDOG, "Hyperland start-hyperland ছাড়া চালু করা হয়েছে। এটি অত্যন্ত সুপারিশকৃত নয় যদি না আপনি ডিবাগিং পরিবেশে থাকেন।");
 
     huEngine->registerEntry("bn_BD", TXT_KEY_SAFE_MODE_TITLE, "নিরাপদ মোড");
     huEngine->registerEntry(
         "bn_BD", TXT_KEY_SAFE_MODE_DESCRIPTION,
-        "Hyprland নিরাপদ মোডে চালু করা হয়েছে, যার মানে আপনার শেষ সেশন ক্র্যাশ হয়েছিল।\nনিরাপদ মোড আপনার কনফিগ লোড হওয়া থেকে প্রতিরোধ করে। আপনি "
+        "Hyperland নিরাপদ মোডে চালু করা হয়েছে, যার মানে আপনার শেষ সেশন ক্র্যাশ হয়েছিল।\nনিরাপদ মোড আপনার কনফিগ লোড হওয়া থেকে প্রতিরোধ করে। আপনি "
         "এই পরিবেশে সমস্যা সমাধান করতে পারেন, অথবা নিচের বাটন দিয়ে আপনার কনফিগ লোড করতে পারেন।\nডিফল্ট কীবাইন্ড প্রযোজ্য: kitty এর জন্য SUPER+Q, মৌলিক রানারের জন্য SUPER+R, "
         "প্রস্থান করতে SUPER+M।\nHyprland পুনরায় চালু করলে আবার স্বাভাবিক মোডে চালু হবে।");
     huEngine->registerEntry("bn_BD", TXT_KEY_SAFE_MODE_BUTTON_LOAD_CONFIG, "কনফিগ লোড করুন");
@@ -124,7 +124,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("da_DK", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Et nyt tastatur er fundet: <b>{keyboard}</b>.\n\nVil du tillade den at fungere?");
     huEngine->registerEntry("da_DK", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(ukendt)");
     huEngine->registerEntry("da_DK", TXT_KEY_PERMISSION_TITLE, "Anmodning om tilladelse");
-    huEngine->registerEntry("da_DK", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: Du kan indstille vedvarende regler for disse i Hyprland-konfigurationsfilen.");
+    huEngine->registerEntry("da_DK", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: Du kan indstille vedvarende regler for disse i Hyperland-konfigurationsfilen.");
     huEngine->registerEntry("da_DK", TXT_KEY_PERMISSION_ALLOW, "Tillad");
     huEngine->registerEntry("da_DK", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Tillad og husk");
     huEngine->registerEntry("da_DK", TXT_KEY_PERMISSION_ALLOW_ONCE, "Tillad én gang");
@@ -139,8 +139,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("da_DK", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland kunne ikke indlæse {count} essentiale aktiver, skyd skylden på din distributions pakker for et dårligt stykke arbejde af pakningen!";
-        return "Hyprland kunne ikke indlæse {count} essentiale aktiver, skyd skylden på din distributions pakker for et dårligt stykke arbejde af pakningen!";
+            return "Hyperland kunne ikke indlæse {count} essentiale aktiver, skyd skylden på din distributions pakker for et dårligt stykke arbejde af pakningen!";
+        return "Hyperland kunne ikke indlæse {count} essentiale aktiver, skyd skylden på din distributions pakker for et dårligt stykke arbejde af pakningen!";
     });
     huEngine->registerEntry("da_DK", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Dit skærmlayout har en ukorrekt opsætning. Skærm {name} overlapper med andre skærm(e) i layoutet.\nLæs venligst wiki'en (Monitors page) for "
@@ -166,7 +166,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("en_US", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "A new keyboard has been detected: <b>{keyboard}</b>.\n\nDo you want to allow it to operate?");
     huEngine->registerEntry("en_US", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(unknown)");
     huEngine->registerEntry("en_US", TXT_KEY_PERMISSION_TITLE, "Permission request");
-    huEngine->registerEntry("en_US", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Hint: you can set persistent rules for these in the Hyprland config file.");
+    huEngine->registerEntry("en_US", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Hint: you can set persistent rules for these in the Hyperland config file.");
     huEngine->registerEntry("en_US", TXT_KEY_PERMISSION_ALLOW, "Allow");
     huEngine->registerEntry("en_US", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Allow and remember");
     huEngine->registerEntry("en_US", TXT_KEY_PERMISSION_ALLOW_ONCE, "Allow once");
@@ -181,8 +181,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("en_US", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland failed to load {count} essential asset, blame your distro's packager for doing a bad job at packaging!";
-        return "Hyprland failed to load {count} essential assets, blame your distro's packager for doing a bad job at packaging!";
+            return "Hyperland failed to load {count} essential asset, blame your distro's packager for doing a bad job at packaging!";
+        return "Hyperland failed to load {count} essential assets, blame your distro's packager for doing a bad job at packaging!";
     });
     huEngine->registerEntry("en_US", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Your monitor layout is set up incorrectly. Monitor {name} overlaps with other monitor(s) in the layout.\nPlease see the wiki (Monitors page) for "
@@ -193,14 +193,14 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("en_US", TXT_KEY_NOTIF_CM_RELOAD_FAILED, "CM shader reload failed, falling back to rgba/rgbx.");
     huEngine->registerEntry("en_US", TXT_KEY_NOTIF_WIDE_COLOR_NOT_10B, "Monitor {name}: wide color gamut is enabled but the display is not in 10-bit mode.");
     huEngine->registerEntry("en_US", TXT_KEY_NOTIF_NO_WATCHDOG,
-                            "Hyprland was started without start-hyprland. This is highly not recommended unless you are in a debugging environment.");
+                            "Hyperland was started without start-hyperland. This is highly not recommended unless you are in a debugging environment.");
 
     huEngine->registerEntry("en_US", TXT_KEY_SAFE_MODE_TITLE, "Safe Mode");
     huEngine->registerEntry("en_US", TXT_KEY_SAFE_MODE_DESCRIPTION,
-                            "Hyprland has been launched in safe mode, which means your last session crashed.\nSafe mode prevents your config from being loaded. You can "
+                            "Hyperland has been launched in safe mode, which means your last session crashed.\nSafe mode prevents your config from being loaded. You can "
                             "troubleshoot in this environment, or load your config with the button below.\nDefault keybinds apply: SUPER+Q for kitty, SUPER+R for a basic runner, "
                             "SUPER+M to exit.\nRestarting "
-                            "Hyprland will launch in normal mode again.");
+                            "Hyperland will launch in normal mode again.");
     huEngine->registerEntry("en_US", TXT_KEY_SAFE_MODE_BUTTON_LOAD_CONFIG, "Load config");
     huEngine->registerEntry("en_US", TXT_KEY_SAFE_MODE_BUTTON_OPEN_CRASH_REPORT_DIR, "Open crash report directory");
     huEngine->registerEntry("en_US", TXT_KEY_SAFE_MODE_BUTTON_UNDERSTOOD, "Ok, close this");
@@ -255,7 +255,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("de_DE", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Eine neue Tastatur wurde erkannt: <b>{keyboard}</b>.\n\nMöchten Sie diese in Betrieb nehmen?");
     huEngine->registerEntry("de_DE", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(unbekannt)");
     huEngine->registerEntry("de_DE", TXT_KEY_PERMISSION_TITLE, "Berechtigungsanfrage");
-    huEngine->registerEntry("de_DE", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: Sie können dafür permanente Regeln in der Hyprland-Konfigurationsdatei festlegen.");
+    huEngine->registerEntry("de_DE", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: Sie können dafür permanente Regeln in der Hyperland-Konfigurationsdatei festlegen.");
     huEngine->registerEntry("de_DE", TXT_KEY_PERMISSION_ALLOW, "Erlauben");
     huEngine->registerEntry("de_DE", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Erlauben und merken");
     huEngine->registerEntry("de_DE", TXT_KEY_PERMISSION_ALLOW_ONCE, "Einmal erlauben");
@@ -270,8 +270,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("de_DE", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland konnte {count} essentielle Ressource nicht laden, geben Sie dem Packager ihrer Distribution die Schuld für ein schlechtes Package!";
-        return "Hyprland konnte {count} essentielle Ressroucen nicht laden, geben Sie dem Packager ihrer Distribution die Schuld für ein schlechtes Package!";
+            return "Hyperland konnte {count} essentielle Ressource nicht laden, geben Sie dem Packager ihrer Distribution die Schuld für ein schlechtes Package!";
+        return "Hyperland konnte {count} essentielle Ressroucen nicht laden, geben Sie dem Packager ihrer Distribution die Schuld für ein schlechtes Package!";
     });
     huEngine->registerEntry(
         "de_DE", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
@@ -297,7 +297,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("de_CH", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "En neui Tastatur esch erkönne worde: <b>{keyboard}</b>.\n\nWend sie die in Betreb nä?");
     huEngine->registerEntry("de_CH", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(onbekannt)");
     huEngine->registerEntry("de_CH", TXT_KEY_PERMISSION_TITLE, "Berächtigongsaafrog");
-    huEngine->registerEntry("de_CH", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: Sie chönd permanenti Regle deför i ehrere Hyprland-Konfigurationsdatei festlegge.");
+    huEngine->registerEntry("de_CH", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: Sie chönd permanenti Regle deför i ehrere Hyperland-Konfigurationsdatei festlegge.");
     huEngine->registerEntry("de_CH", TXT_KEY_PERMISSION_ALLOW, "Erlaube");
     huEngine->registerEntry("de_CH", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Erlaube ond merke");
     huEngine->registerEntry("de_CH", TXT_KEY_PERMISSION_ALLOW_ONCE, "Einisch erlaube");
@@ -310,7 +310,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("de_CH", TXT_KEY_NOTIF_NO_GUIUTILS,
                             "Ehres System hed hyprland-guiutils ned installiert. Das esch en Laufziitabhängigkeit för es paar Dialog. Es werd empfohle sie z'installiere.");
     huEngine->registerEntry("de_CH", TXT_KEY_NOTIF_FAILED_ASSETS,
-                            "Hyprland hed {count} essentielli Ressource ned chönne lade, gäbed Sie im Packager vo ehrere Distribution schold för es schlächts Package!");
+                            "Hyperland hed {count} essentielli Ressource ned chönne lade, gäbed Sie im Packager vo ehrere Distribution schold för es schlächts Package!");
     huEngine->registerEntry("de_CH", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Ehres Beldschermlayout esch fählerhaft uufgsetzt. De Beldscherm {name} öberlappt met andere Beldscherm(e) im Layout.\nBitte lueged sie im Wiki "
                             "(Monitors Siite) för meh Informatione. Das <b>werd</b> zo Problem füehre.");
@@ -335,7 +335,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("pt_BR", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(Desconhecido)");
     huEngine->registerEntry("pt_BR", TXT_KEY_PERMISSION_TITLE, "Solicitação de permissão");
     huEngine->registerEntry("pt_BR", TXT_KEY_PERMISSION_PERSISTENCE_HINT,
-                            "Dica: você pode definir regras persistentes para essas permissões no arquivo de configuração do Hyprland");
+                            "Dica: você pode definir regras persistentes para essas permissões no arquivo de configuração do Hyperland");
     huEngine->registerEntry("pt_BR", TXT_KEY_PERMISSION_ALLOW, "Permitir");
     huEngine->registerEntry("pt_BR", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Permitir e lembrar");
     huEngine->registerEntry("pt_BR", TXT_KEY_PERMISSION_ALLOW_ONCE, "Permitir uma vez");
@@ -349,8 +349,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("pt_BR", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "O Hyprland falhou ao carregar {count} recurso essencial, culpe o empacotador da sua distro por fazer um péssimo trabalho!";
-        return "O Hyprland falhou ao carregar {count} recursos essenciais, culpe o empacotador da sua distro por fazer um péssimo trabalho!";
+            return "O Hyperland falhou ao carregar {count} recurso essencial, culpe o empacotador da sua distro por fazer um péssimo trabalho!";
+        return "O Hyperland falhou ao carregar {count} recursos essenciais, culpe o empacotador da sua distro por fazer um péssimo trabalho!";
     });
     huEngine->registerEntry("pt_BR", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Sua disposição de monitores está configurada incorretamente. O monitor {name} se sobrepõe a outro(s) monitor(es) na disposição.\nPor favor consulte "
@@ -377,7 +377,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("es", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(desconocido)");
     huEngine->registerEntry("es", TXT_KEY_PERMISSION_TITLE, "Solicitud de permiso");
     huEngine->registerEntry("es", TXT_KEY_PERMISSION_PERSISTENCE_HINT,
-                            "Sugerencia: puedes establecer reglas persistentes para estos permisos en el archivo de configuración de Hyprland.");
+                            "Sugerencia: puedes establecer reglas persistentes para estos permisos en el archivo de configuración de Hyperland.");
     huEngine->registerEntry("es", TXT_KEY_PERMISSION_ALLOW, "Permitir");
     huEngine->registerEntry("es", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Permitir y recordar");
     huEngine->registerEntry("es", TXT_KEY_PERMISSION_ALLOW_ONCE, "Permitir una vez");
@@ -487,7 +487,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("fi_FI", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Uusi näppäimistö havaittu: <b>{keyboard}</b>.\n\nHaluatko sallia sen toiminnan?");
     huEngine->registerEntry("fi_FI", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(tuntematon)");
     huEngine->registerEntry("fi_FI", TXT_KEY_PERMISSION_TITLE, "Käyttöoikeuspyyntö");
-    huEngine->registerEntry("fi_FI", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Vihje: voit asettaa nämä säännöt pysyvästi Hyprland konfiguraatio tiedostossa.");
+    huEngine->registerEntry("fi_FI", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Vihje: voit asettaa nämä säännöt pysyvästi Hyperland konfiguraatio tiedostossa.");
     huEngine->registerEntry("fi_FI", TXT_KEY_PERMISSION_ALLOW, "Salli");
     huEngine->registerEntry("fi_FI", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Salli ja muista");
     huEngine->registerEntry("fi_FI", TXT_KEY_PERMISSION_ALLOW_ONCE, "Salli kerran");
@@ -502,8 +502,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("fi_FI", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland epäonnistui olennaisen resurssin ({count}) latauksessa. Tämä johtuu todennäköisesti jakelusi virheellisestä pakkauksesta.";
-        return "Hyprland epäonnistui olennaisten resurssien ({count}) latauksessa. Tämä johtuu todennäköisesti jakelusi virheellisestä pakkauksesta.";
+            return "Hyperland epäonnistui olennaisen resurssin ({count}) latauksessa. Tämä johtuu todennäköisesti jakelusi virheellisestä pakkauksesta.";
+        return "Hyperland epäonnistui olennaisten resurssien ({count}) latauksessa. Tämä johtuu todennäköisesti jakelusi virheellisestä pakkauksesta.";
     });
     huEngine->registerEntry(
         "fi_FI", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
@@ -527,7 +527,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("fr_FR", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Un nouveau clavier a été détecté : <b>{keyboard}</b>.\n\nVoulez-vous l'autoriser à fonctionner?");
     huEngine->registerEntry("fr_FR", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(inconnu)");
     huEngine->registerEntry("fr_FR", TXT_KEY_PERMISSION_TITLE, "Demande d'autorisation");
-    huEngine->registerEntry("fr_FR", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Astuce: vous pouvez définir des règles persistantes dans le fichier de configuration de Hyprland.");
+    huEngine->registerEntry("fr_FR", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Astuce: vous pouvez définir des règles persistantes dans le fichier de configuration de Hyperland.");
     huEngine->registerEntry("fr_FR", TXT_KEY_PERMISSION_ALLOW, "Autoriser");
     huEngine->registerEntry("fr_FR", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Autoriser et mémoriser");
     huEngine->registerEntry("fr_FR", TXT_KEY_PERMISSION_ALLOW_ONCE, "Autoriser une fois");
@@ -542,8 +542,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("fr_FR", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland n'a pas pu charger {count} ressource essentielle, cela indique très probablement un problème dans le paquet de votre distribution.";
-        return "Hyprland n'a pas pu charger {count} ressources essentielles, cela indique très probablement un problème dans le paquet de votre distribution.";
+            return "Hyperland n'a pas pu charger {count} ressource essentielle, cela indique très probablement un problème dans le paquet de votre distribution.";
+        return "Hyperland n'a pas pu charger {count} ressources essentielles, cela indique très probablement un problème dans le paquet de votre distribution.";
     });
     huEngine->registerEntry("fr_FR", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Votre disposition d'écrans est incorrecte. Le moniteur {name} chevauche un ou plusieurs autres.\nVeuillez consulter le wiki (page Moniteurs) pour"
@@ -575,7 +575,7 @@ I18n::CI18nEngine::CI18nEngine() {
                             "इसे काम करने की अनुमति देना चाहते हैं?");
     huEngine->registerEntry("hi_IN", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(अज्ञात)");
     huEngine->registerEntry("hi_IN", TXT_KEY_PERMISSION_TITLE, "अनुमति अनुरोध");
-    huEngine->registerEntry("hi_IN", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "संकेत: आप Hyprland कॉन्फ़िग फ़ाइल में इनके लिए स्थायी नियम सेट कर सकते हैं।");
+    huEngine->registerEntry("hi_IN", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "संकेत: आप Hyperland कॉन्फ़िग फ़ाइल में इनके लिए स्थायी नियम सेट कर सकते हैं।");
     huEngine->registerEntry("hi_IN", TXT_KEY_PERMISSION_ALLOW, "अनुमति दें");
     huEngine->registerEntry("hi_IN", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "अनुमति दें और याद रखें");
     huEngine->registerEntry("hi_IN", TXT_KEY_PERMISSION_ALLOW_ONCE, "एक बार अनुमति दें");
@@ -592,9 +592,9 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("hi_IN", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland {count} आवश्यक संसाधन लोड करने में विफल रहा, अपने डिस्ट्रो "
+            return "Hyperland {count} आवश्यक संसाधन लोड करने में विफल रहा, अपने डिस्ट्रो "
                    "के पैकेजर को पैकेजिंग में खराब काम करने का दोष दें!";
-        return "Hyprland {count} आवश्यक संसाधनों को लोड करने में विफल रहा, अपने "
+        return "Hyperland {count} आवश्यक संसाधनों को लोड करने में विफल रहा, अपने "
                "डिस्ट्रो के पैकेजर को पैकेजिंग में खराब काम करने का दोष दें!";
     });
     huEngine->registerEntry("hi_IN", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
@@ -624,7 +624,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("id_ID", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Keyboard baru terdeteksi: <b>{keyboard}</b>.\n\nApakah Anda mengizinkannya beroperasi?");
     huEngine->registerEntry("id_ID", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(tidak diketahui)");
     huEngine->registerEntry("id_ID", TXT_KEY_PERMISSION_TITLE, "Permintaan Izin");
-    huEngine->registerEntry("id_ID", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Petunjuk: Anda dapat mengatur <i>rule</i> ini secara permanen di <i>file</i> konfigurasi Hyprland.");
+    huEngine->registerEntry("id_ID", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Petunjuk: Anda dapat mengatur <i>rule</i> ini secara permanen di <i>file</i> konfigurasi Hyperland.");
     huEngine->registerEntry("id_ID", TXT_KEY_PERMISSION_ALLOW, "Izinkan");
     huEngine->registerEntry("id_ID", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Izinkan dan Ingat");
     huEngine->registerEntry("id_ID", TXT_KEY_PERMISSION_ALLOW_ONCE, "Izinkan Sekali");
@@ -640,8 +640,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("id_ID", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland gagal memuat {count} aset penting. Salahkan pengelola paket distro Anda karena pengemasannya buruk!";
-        return "Hyprland gagal memuat {count} aset penting. Salahkan pengelola paket distro Anda karena pengemasannya buruk!";
+            return "Hyperland gagal memuat {count} aset penting. Salahkan pengelola paket distro Anda karena pengemasannya buruk!";
+        return "Hyperland gagal memuat {count} aset penting. Salahkan pengelola paket distro Anda karena pengemasannya buruk!";
     });
     huEngine->registerEntry("id_ID", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Susunan monitor Anda tidak benar. Monitor {name} tertumpuk dengan monitor lain.\nSilakan lihat wiki (halaman <i>Monitors</i>) untuk "
@@ -665,7 +665,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("hr_HR", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Otkrivena je nova tipkovnica: <b>{keyboard}</b>.\n\nŽeliš li omogućiti njen rad?");
     huEngine->registerEntry("hr_HR", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(nepoznato)");
     huEngine->registerEntry("hr_HR", TXT_KEY_PERMISSION_TITLE, "Zahtjev za dozvolu");
-    huEngine->registerEntry("hr_HR", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Savjet: za ovo možeš postaviti trajna pravila u Hyprland konfiguracijskoj datoteci.");
+    huEngine->registerEntry("hr_HR", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Savjet: za ovo možeš postaviti trajna pravila u Hyperland konfiguracijskoj datoteci.");
     huEngine->registerEntry("hr_HR", TXT_KEY_PERMISSION_ALLOW, "Dozvoli");
     huEngine->registerEntry("hr_HR", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Dozvoli i zapamti");
     huEngine->registerEntry("hr_HR", TXT_KEY_PERMISSION_ALLOW_ONCE, "Dozvoli samo ovaj put");
@@ -680,10 +680,10 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("hr_HR", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo % 10 <= 1 && assetsNo % 100 != 11)
-            return "Hyprland nije uspio učitati {count} neophodnu komponentu, krivi pakera svoje distribucije za loš posao pakiranja!";
+            return "Hyperland nije uspio učitati {count} neophodnu komponentu, krivi pakera svoje distribucije za loš posao pakiranja!";
         else if (assetsNo % 10 <= 4 && assetsNo % 100 > 14)
-            return "Hyprland nije uspio učitati {count} neophodne komponente, krivi pakera svoje distribucije za loš posao pakiranja!";
-        return "Hyprland nije uspio učitati {count} neophodnih komponenata, krivi pakera svoje distribucije za loš posao pakiranja!";
+            return "Hyperland nije uspio učitati {count} neophodne komponente, krivi pakera svoje distribucije za loš posao pakiranja!";
+        return "Hyperland nije uspio učitati {count} neophodnih komponenata, krivi pakera svoje distribucije za loš posao pakiranja!";
     });
     huEngine->registerEntry("hr_HR", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Raspored tvojih monitora je krivo postavljen. Monitor {name} preklapa se s ostalim monitorom/ima u rasporedu.\nProvjeri wiki (Monitors stranicu) za "
@@ -708,7 +708,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("it_IT", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "È stata rilevata una nuova tastiera: <b>{keyboard}</b>.\n\nLe vuoi permettere di operare?");
     huEngine->registerEntry("it_IT", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(sconosciuto)");
     huEngine->registerEntry("it_IT", TXT_KEY_PERMISSION_TITLE, "Richiesta di autorizzazione");
-    huEngine->registerEntry("it_IT", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Consiglio: Puoi impostare una regola persistente nel tuo file di configurazione di Hyprland.");
+    huEngine->registerEntry("it_IT", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Consiglio: Puoi impostare una regola persistente nel tuo file di configurazione di Hyperland.");
     huEngine->registerEntry("it_IT", TXT_KEY_PERMISSION_ALLOW, "Permetti");
     huEngine->registerEntry("it_IT", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Permetti e ricorda");
     huEngine->registerEntry("it_IT", TXT_KEY_PERMISSION_ALLOW_ONCE, "Permetti una volta");
@@ -720,7 +720,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("it_IT", TXT_KEY_NOTIF_NO_GUIUTILS,
                             "Sembra che hyprland-guiutils non sia installato. È una dipendenza richiesta per alcuni dialoghi che potresti voler installare.");
     huEngine->registerEntry("it_IT", TXT_KEY_NOTIF_FAILED_ASSETS,
-                            "Hyprland non ha potuto caricare {count} asset, dai la colpa al packager della tua distribuzione per il suo cattivo lavoro!");
+                            "Hyperland non ha potuto caricare {count} asset, dai la colpa al packager della tua distribuzione per il suo cattivo lavoro!");
     huEngine->registerEntry("it_IT", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "I tuoi schermi sono configurati incorrettamente. Lo schermo {name} si sovrappone con altri nel layout.\nConsulta la wiki (voce Schermi) per "
                             "altre informazioni. Questo <b>causerà</b> problemi.");
@@ -744,7 +744,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ja_JP", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "新しいキーボード <b>{keyboard}</b> が接続されました。\n\n使用を許可しますか？");
     huEngine->registerEntry("ja_JP", TXT_KEY_PERMISSION_UNKNOWN_NAME, "（不明）");
     huEngine->registerEntry("ja_JP", TXT_KEY_PERMISSION_TITLE, "権限の要求");
-    huEngine->registerEntry("ja_JP", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "ヒント：永続的なルールを Hyprland の設定ファイルに記述できます。");
+    huEngine->registerEntry("ja_JP", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "ヒント：永続的なルールを Hyperland の設定ファイルに記述できます。");
     huEngine->registerEntry("ja_JP", TXT_KEY_PERMISSION_ALLOW, "許可");
     huEngine->registerEntry("ja_JP", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "許可して保存");
     huEngine->registerEntry("ja_JP", TXT_KEY_PERMISSION_ALLOW_ONCE, "今回だけ許可");
@@ -764,13 +764,13 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ja_JP", TXT_KEY_NOTIF_FAILED_TO_LOAD_PLUGIN, "プラグイン {name} のロードで、エラー {error} が発生しました。");
     huEngine->registerEntry("ja_JP", TXT_KEY_NOTIF_CM_RELOAD_FAILED, "CM シェーダのリロードに失敗したため、rgba/rgbx を使用します。");
     huEngine->registerEntry("ja_JP", TXT_KEY_NOTIF_WIDE_COLOR_NOT_10B, "広色域が有効なモニタ {name} を使用していますが、画面表示の設定は 10 ビットになっていません。");
-    huEngine->registerEntry("ja_JP", TXT_KEY_NOTIF_NO_WATCHDOG, "start-hyprland なしで Hyprland を実行しています。これは、デバッグ目的以外ではおすすめしません。");
+    huEngine->registerEntry("ja_JP", TXT_KEY_NOTIF_NO_WATCHDOG, "start-hyperland なしで Hyperland を実行しています。これは、デバッグ目的以外ではおすすめしません。");
 
     huEngine->registerEntry("ja_JP", TXT_KEY_SAFE_MODE_TITLE, "セーフモード");
     huEngine->registerEntry("ja_JP", TXT_KEY_SAFE_MODE_DESCRIPTION,
-                            "前回のセッションがクラッシュしました。Hyprland "
+                            "前回のセッションがクラッシュしました。Hyperland "
                             "は設定ファイルをロードしない、セーフモードで動作しています。\n問題を解決するか、もしくは下のボタンで設定ファイルをロードしてください。"
-                            "\nデフォルトのキーバインドは、SUPER+Q が kitty、SUPER+R が簡素なランチャー、SUPER+M が Hyprland の終了です。"
+                            "\nデフォルトのキーバインドは、SUPER+Q が kitty、SUPER+R が簡素なランチャー、SUPER+M が Hyperland の終了です。"
                             "\nHyprland を再起動することで、ノーマルモードで動作します。");
     huEngine->registerEntry("ja_JP", TXT_KEY_SAFE_MODE_BUTTON_LOAD_CONFIG, "設定ファイルをロード");
     huEngine->registerEntry("ja_JP", TXT_KEY_SAFE_MODE_BUTTON_OPEN_CRASH_REPORT_DIR, "クラッシュレポートフォルダを開く");
@@ -789,7 +789,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("lv_LV", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Ir atrasta jauna tastatūra: <b>{keyboard}</b>.\n\nVai vēlaties atļaut tās darbību?");
     huEngine->registerEntry("lv_LV", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(nezināms)");
     huEngine->registerEntry("lv_LV", TXT_KEY_PERMISSION_TITLE, "Atļaujas pieprasījums");
-    huEngine->registerEntry("lv_LV", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Padoms: Hyprland konfigurācijas failā varat arī iestatīt atļaujas.");
+    huEngine->registerEntry("lv_LV", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Padoms: Hyperland konfigurācijas failā varat arī iestatīt atļaujas.");
     huEngine->registerEntry("lv_LV", TXT_KEY_PERMISSION_ALLOW, "Atļaut");
     huEngine->registerEntry("lv_LV", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Atļaut un atcerēties");
     huEngine->registerEntry("lv_LV", TXT_KEY_PERMISSION_ALLOW_ONCE, "Atļaut vienreiz");
@@ -802,8 +802,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("lv_LV", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland nevarēja ielādēt {count} būtisku resursu, vainojiet sava distro iepakotāju par sliktu iepakošanu!";
-        return "Hyprland nevarēja ielādēt {count} būtiskus resursus, vainojiet sava distro iepakotāju par sliktu iepakošanu!";
+            return "Hyperland nevarēja ielādēt {count} būtisku resursu, vainojiet sava distro iepakotāju par sliktu iepakošanu!";
+        return "Hyperland nevarēja ielādēt {count} būtiskus resursus, vainojiet sava distro iepakotāju par sliktu iepakošanu!";
     });
     huEngine->registerEntry(
         "lv_LV", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
@@ -828,7 +828,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("hu_HU", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Új billentyűzetet észleltünk: <b>{keyboard}</b>.\n\nEngedélyezi a használatát?");
     huEngine->registerEntry("hu_HU", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(ismeretlen)");
     huEngine->registerEntry("hu_HU", TXT_KEY_PERMISSION_TITLE, "Engedélykérés");
-    huEngine->registerEntry("hu_HU", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tipp: Állandó szabályokat állíthat be a Hyprland konfigurációs fájlban.");
+    huEngine->registerEntry("hu_HU", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tipp: Állandó szabályokat állíthat be a Hyperland konfigurációs fájlban.");
     huEngine->registerEntry("hu_HU", TXT_KEY_PERMISSION_ALLOW, "Engedélyezés");
     huEngine->registerEntry("hu_HU", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Mindig engedélyez");
     huEngine->registerEntry("hu_HU", TXT_KEY_PERMISSION_ALLOW_ONCE, "Egyszeri engedélyezés");
@@ -842,8 +842,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("hu_HU", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "A Hyprland nem tudta betölteni az 1 szükséges erőforrást. Kérjük, jelezze a hibát a disztribúció csomagolójának.";
-        return "A Hyprland nem tudott betölteni {count} szükséges erőforrást. Kérjük, jelezze a hibát a disztribúció csomagolójának.";
+            return "A Hyperland nem tudta betölteni az 1 szükséges erőforrást. Kérjük, jelezze a hibát a disztribúció csomagolójának.";
+        return "A Hyperland nem tudott betölteni {count} szükséges erőforrást. Kérjük, jelezze a hibát a disztribúció csomagolójának.";
     });
     huEngine->registerEntry(
         "hu_HU", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
@@ -868,7 +868,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ml_IN", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "പുതിയ കീബോർഡ് കണ്ടെത്തി: <b>{keyboard}</b>.\n\nഇത് പ്രവർത്തിക്കാൻ അനുവദിക്കണോ?");
     huEngine->registerEntry("ml_IN", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(അജ്ഞാതം)");
     huEngine->registerEntry("ml_IN", TXT_KEY_PERMISSION_TITLE, "അനുമതി അഭ്യർത്ഥന");
-    huEngine->registerEntry("ml_IN", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "സൂചന: Hyprland കോൺഫിഗ് ഫയലിൽ സ്ഥിരനിയമങ്ങൾ സജ്ജമാക്കാം.");
+    huEngine->registerEntry("ml_IN", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "സൂചന: Hyperland കോൺഫിഗ് ഫയലിൽ സ്ഥിരനിയമങ്ങൾ സജ്ജമാക്കാം.");
     huEngine->registerEntry("ml_IN", TXT_KEY_PERMISSION_ALLOW, "അനുവദിക്കുക");
     huEngine->registerEntry("ml_IN", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "അനുവദിച്ച് ഓർക്കുക");
     huEngine->registerEntry("ml_IN", TXT_KEY_PERMISSION_ALLOW_ONCE, "ഒന്നുതവണ അനുവദിക്കുക");
@@ -884,10 +884,10 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ml_IN", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland {count} പ്രധാന അസറ്റ് ലോഡുചെയ്യാൻ പരാജയപ്പെട്ടു, നിങ്ങളുടെ "
+            return "Hyperland {count} പ്രധാന അസറ്റ് ലോഡുചെയ്യാൻ പരാജയപ്പെട്ടു, നിങ്ങളുടെ "
                    "ഡിസ്‌ട്രോ "
                    "പാക്കേജർ പിശക് ചെയ്തിരിക്കുന്നു!";
-        return "Hyprland {count} പ്രധാന അസറ്റുകൾ ലോഡുചെയ്യാൻ പരാജയപ്പെട്ടു, നിങ്ങളുടെ "
+        return "Hyperland {count} പ്രധാന അസറ്റുകൾ ലോഡുചെയ്യാൻ പരാജയപ്പെട്ടു, നിങ്ങളുടെ "
                "ഡിസ്‌ട്രോ "
                "പാക്കേജർ പിശക് ചെയ്തിരിക്കുന്നു!";
     });
@@ -913,7 +913,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("nb_NO", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Et nytt tastatur er oppdaget: <b>{keyboard}</b>.\n\nVil du tillate at det opererer?");
     huEngine->registerEntry("nb_NO", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(ukjent)");
     huEngine->registerEntry("nb_NO", TXT_KEY_PERMISSION_TITLE, "Tillatelsesforespørsel");
-    huEngine->registerEntry("nb_NO", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Hint: du kan angi vedvarende regler for disse i Hyprland konfigurasjonsfilen.");
+    huEngine->registerEntry("nb_NO", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Hint: du kan angi vedvarende regler for disse i Hyperland konfigurasjonsfilen.");
     huEngine->registerEntry("nb_NO", TXT_KEY_PERMISSION_ALLOW, "Tillat");
     huEngine->registerEntry("nb_NO", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Tillat og husk");
     huEngine->registerEntry("nb_NO", TXT_KEY_PERMISSION_ALLOW_ONCE, "Tillat en gang");
@@ -928,8 +928,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("nb_NO", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland kunne ikke laste {count} essensiell ressurs, skyld på distroens pakkeansvarlig for å ha gjort en dårlig jobb med pakkingen!";
-        return "Hyprland kunne ikke laste {count} essensielle ressurser, skyld på distroens pakkeansvarlig for å ha gjort en dårlig jobb med pakkingen!";
+            return "Hyperland kunne ikke laste {count} essensiell ressurs, skyld på distroens pakkeansvarlig for å ha gjort en dårlig jobb med pakkingen!";
+        return "Hyperland kunne ikke laste {count} essensielle ressurser, skyld på distroens pakkeansvarlig for å ha gjort en dårlig jobb med pakkingen!";
     });
     huEngine->registerEntry("nb_NO", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Skjermoppsettet ditt er satt opp feil. Skjerm {name} overlapper med skjerm(er) i oppsettet.\nSjekk wiki (Skjerm oppsett siden) for "
@@ -992,7 +992,7 @@ I18n::CI18nEngine::CI18nEngine() {
                             "Een nieuw toetsenbord is gedetecteerd: <b>{keyboard}</b>.\n\nWilt u toestemming geven dat het wordt gebruikt?");
     huEngine->registerEntry("nl_NL", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(onbekend)");
     huEngine->registerEntry("nl_NL", TXT_KEY_PERMISSION_TITLE, "Toestemmingsverzoek");
-    huEngine->registerEntry("nl_NL", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: U kunt hiervoor vaste regels instellen in het Hyprland-configuratiebestand.");
+    huEngine->registerEntry("nl_NL", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: U kunt hiervoor vaste regels instellen in het Hyperland-configuratiebestand.");
     huEngine->registerEntry("nl_NL", TXT_KEY_PERMISSION_ALLOW, "Toestaan");
     huEngine->registerEntry("nl_NL", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Toestaan en onthouden");
     huEngine->registerEntry("nl_NL", TXT_KEY_PERMISSION_ALLOW_ONCE, "Één keer toestaan");
@@ -1003,12 +1003,12 @@ I18n::CI18nEngine::CI18nEngine() {
         "nl_NL", TXT_KEY_NOTIF_EXTERNAL_XDG_DESKTOP,
         "De XDG_CURRENT_DESKTOP omgevingsvariabele lijkt extern beheerd te worden en de huidige waarde is {value}.\nDit kan problemen veroorzaken, tenzij dit opzettelijk is.");
     huEngine->registerEntry("nl_NL", TXT_KEY_NOTIF_NO_GUIUTILS,
-                            "Hyprland-guiutils is niet op uw systeem geïnstalleerd. Dit is een runtime-afhankelijkheid voor sommige dialogen. Overweeg het te installeren.");
+                            "Hyperland-guiutils is niet op uw systeem geïnstalleerd. Dit is een runtime-afhankelijkheid voor sommige dialogen. Overweeg het te installeren.");
     huEngine->registerEntry("nl_NL", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland kon {count} essentieel bestand niet laden, geef de pakketbeheerder van uw distro de schuld voor slecht verpakkingswerk!";
-        return "Hyprland kon {count} essentiële bestanden niet laden, geef de pakketbeheerder van uw distro de schuld voor slecht verpakkingswerk!";
+            return "Hyperland kon {count} essentieel bestand niet laden, geef de pakketbeheerder van uw distro de schuld voor slecht verpakkingswerk!";
+        return "Hyperland kon {count} essentiële bestanden niet laden, geef de pakketbeheerder van uw distro de schuld voor slecht verpakkingswerk!";
     });
     huEngine->registerEntry("nl_NL", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Uw monitorindeling is onjuist ingesteld. Monitor {name} overlapt met één of meerdere andere monitoren in de indeling.\n"
@@ -1034,7 +1034,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("pl_PL", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Wykryto nową klawiaturę: <b>{keyboard}</b>.\n\nCzy chcesz jej pozwolić operować?");
     huEngine->registerEntry("pl_PL", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(nieznane)");
     huEngine->registerEntry("pl_PL", TXT_KEY_PERMISSION_TITLE, "Prośba o pozwolenie");
-    huEngine->registerEntry("pl_PL", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Podpowiedź: możesz ustawić stałe zasady w konfiguracji Hyprland'a.");
+    huEngine->registerEntry("pl_PL", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Podpowiedź: możesz ustawić stałe zasady w konfiguracji Hyperland'a.");
     huEngine->registerEntry("pl_PL", TXT_KEY_PERMISSION_ALLOW, "Zezwól");
     huEngine->registerEntry("pl_PL", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Zezwól i zapamiętaj");
     huEngine->registerEntry("pl_PL", TXT_KEY_PERMISSION_ALLOW_ONCE, "Zezwól raz");
@@ -1060,14 +1060,14 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("pl_PL", TXT_KEY_NOTIF_CM_RELOAD_FAILED, "Nie udało się przeładować shader'a CM, użyto rgba/rgbx.");
     huEngine->registerEntry("pl_PL", TXT_KEY_NOTIF_WIDE_COLOR_NOT_10B, "Monitor {name}: skonfigurowano szeroką głębię barw, ale monitor nie jest w trybie 10-bit.");
     huEngine->registerEntry("pl_PL", TXT_KEY_NOTIF_NO_WATCHDOG,
-                            "Hyprland został uruchomiony bez start-hyprland. Nie jest to zalecane, chyba, że jest to środowisko do debugowania.");
+                            "Hyperland został uruchomiony bez start-hyperland. Nie jest to zalecane, chyba, że jest to środowisko do debugowania.");
 
     huEngine->registerEntry("pl_PL", TXT_KEY_SAFE_MODE_TITLE, "Tryb Bezpieczny");
     huEngine->registerEntry("pl_PL", TXT_KEY_SAFE_MODE_DESCRIPTION,
-                            "Hyprland został uruchomiony w trybie bezpiecznym, co oznacza, że twoja ostatnia sesja uległa awarii.\nTryb bezpieczny zapobiega ładowaniu twojej "
+                            "Hyperland został uruchomiony w trybie bezpiecznym, co oznacza, że twoja ostatnia sesja uległa awarii.\nTryb bezpieczny zapobiega ładowaniu twojej "
                             "konfiguracji. Możesz próbować rozwiązać"
                             "problem w tym środowisku, lub załadować swoją konfigurację przyciskiem poniżej.\nDomyślne skróty klawiszowe są dostępne: SUPER+Q uruchamia kitty, "
-                            "SUPER+R otwiera podstawowy launcher, SUPER+M zamyka Hyprland.\nUruchomienie ponowne Hyprland'a uruchomi go w trybie normalnym.");
+                            "SUPER+R otwiera podstawowy launcher, SUPER+M zamyka Hyperland.\nUruchomienie ponowne Hyperland'a uruchomi go w trybie normalnym.");
     huEngine->registerEntry("pl_PL", TXT_KEY_SAFE_MODE_BUTTON_LOAD_CONFIG, "Załaduj konfigurację");
     huEngine->registerEntry("pl_PL", TXT_KEY_SAFE_MODE_BUTTON_OPEN_CRASH_REPORT_DIR, "Otwórz folder z raportami awarii");
     huEngine->registerEntry("pl_PL", TXT_KEY_SAFE_MODE_BUTTON_UNDERSTOOD, "Ok, zamknij to okno");
@@ -1085,7 +1085,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("pt_PT", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Um novo teclado foi detectado: <b>{keyboard}</b>.\n\nQueres permitir a sua operação?");
     huEngine->registerEntry("pt_PT", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(desconhecido)");
     huEngine->registerEntry("pt_PT", TXT_KEY_PERMISSION_TITLE, "Pedido de permissão");
-    huEngine->registerEntry("pt_PT", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Dica: podes definir regras persistentes para estes no ficheiro de configuração do Hyprland.");
+    huEngine->registerEntry("pt_PT", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Dica: podes definir regras persistentes para estes no ficheiro de configuração do Hyperland.");
     huEngine->registerEntry("pt_PT", TXT_KEY_PERMISSION_ALLOW, "Permitir");
     huEngine->registerEntry("pt_PT", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Permitir sempre");
     huEngine->registerEntry("pt_PT", TXT_KEY_PERMISSION_ALLOW_ONCE, "Permitir esta vez");
@@ -1100,8 +1100,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("pt_PT", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland não conseguiu carregar {count} asset essencial, podes culpar o gestor de dependências da tua distro por fazer um mau trabalho!";
-        return "Hyprland não conseguiu carregar {count} assets essenciais, podes culpar o gestor de dependências da tua distro por fazer um mau trabalho!";
+            return "Hyperland não conseguiu carregar {count} asset essencial, podes culpar o gestor de dependências da tua distro por fazer um mau trabalho!";
+        return "Hyperland não conseguiu carregar {count} assets essenciais, podes culpar o gestor de dependências da tua distro por fazer um mau trabalho!";
     });
     huEngine->registerEntry(
         "pt_PT", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
@@ -1136,7 +1136,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_EXTERNAL_XDG_DESKTOP,
                             "你的环境变量XDG_CURRENT_DESKTOP似乎被外部管理，且当前的值为{value}。如果你不是有意这么做，这可能会导致问题。");
     huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_NO_GUIUTILS, "你的系统似乎没有安装hyprland-guiutils。这是一个用于部分对话框的运行时依赖。请考虑安装。");
-    huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_FAILED_ASSETS, "Hyprland无法加载{count}个重要资产，问问你发行版的打包者在打包个什么玩意！？");
+    huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_FAILED_ASSETS, "Hyperland无法加载{count}个重要资产，问问你发行版的打包者在打包个什么玩意！？");
     huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "你的显示器没有被正确设置。显示器 {name} 和其他显示器的布局重叠了。请看wiki中的“显示器”一章获取更多信息。这<b>会</b>导致问题。");
     huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_MONITOR_MODE_FAIL, "显示器 {name} 无法被设置为任何请求的模式，将使用 {mode} 兜底。");
@@ -1144,14 +1144,14 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_FAILED_TO_LOAD_PLUGIN, "无法加载插件 {name}：{error}");
     huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_CM_RELOAD_FAILED, "无法重新加载CM着色器，将使用rgba/rgbx兜底。");
     huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_WIDE_COLOR_NOT_10B, "显示器 {name}：宽色域被启用了，但是显示器并不在10-bit模式。");
-    huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_NO_WATCHDOG, "Hyprland 启动时未使用 start-hyprland。除非你处于调试环境，否则极度不推荐这样做。");
+    huEngine->registerEntry("zh_CN", TXT_KEY_NOTIF_NO_WATCHDOG, "Hyperland 启动时未使用 start-hyperland。除非你处于调试环境，否则极度不推荐这样做。");
 
     huEngine->registerEntry("zh_CN", TXT_KEY_SAFE_MODE_TITLE, "安全模式");
     huEngine->registerEntry("zh_CN", TXT_KEY_SAFE_MODE_DESCRIPTION,
-                            "Hyprland "
+                            "Hyperland "
                             "已在安全模式下启动，这意味着你上次会话崩溃了。\n安全模式会阻止加载你的配置。你可以在此环境中进行故障排除，或者使用下方按钮加载你的配置。\n默认快"
                             "捷键适用：SUPER+Q 打开 Kitty，SUPER+R 打开简易启动器，SUPER+M 退出。\n重新启动 "
-                            "Hyprland 将再次进入正常模式。");
+                            "Hyperland 将再次进入正常模式。");
     huEngine->registerEntry("zh_CN", TXT_KEY_SAFE_MODE_BUTTON_LOAD_CONFIG, "加载配置");
     huEngine->registerEntry("zh_CN", TXT_KEY_SAFE_MODE_BUTTON_OPEN_CRASH_REPORT_DIR, "打开崩溃报告目录");
     huEngine->registerEntry("zh_CN", TXT_KEY_SAFE_MODE_BUTTON_UNDERSTOOD, "好的，关闭窗口");
@@ -1169,7 +1169,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("zh_TW", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "偵測到新鍵盤：<b>{keyboard}</b>。\n\n您是否允許它進行操作？");
     huEngine->registerEntry("zh_TW", TXT_KEY_PERMISSION_UNKNOWN_NAME, "（未知）");
     huEngine->registerEntry("zh_TW", TXT_KEY_PERMISSION_TITLE, "權限請求");
-    huEngine->registerEntry("zh_TW", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "提示：您可以在 Hyprland 設定檔中為此建立永久規則。");
+    huEngine->registerEntry("zh_TW", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "提示：您可以在 Hyperland 設定檔中為此建立永久規則。");
     huEngine->registerEntry("zh_TW", TXT_KEY_PERMISSION_ALLOW, "允許");
     huEngine->registerEntry("zh_TW", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "總是允許");
     huEngine->registerEntry("zh_TW", TXT_KEY_PERMISSION_ALLOW_ONCE, "僅允許一次");
@@ -1182,8 +1182,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("zh_TW", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland 無法載入 {count} 個必要資源，去怪那個把發行版打包成這副德性的維護者！";
-        return "Hyprland 無法載入 {count} 個必要資源，去怪那個把發行版打包成這副德性的維護者！";
+            return "Hyperland 無法載入 {count} 個必要資源，去怪那個把發行版打包成這副德性的維護者！";
+        return "Hyperland 無法載入 {count} 個必要資源，去怪那個把發行版打包成這副德性的維護者！";
     });
     huEngine->registerEntry("zh_TW", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "您的螢幕配置設定不正確。螢幕 {name} 與配置中的其他螢幕重疊了。\n請參閱 Wiki（螢幕頁面）以了解詳情。這<b>絕對會</b>導致問題。");
@@ -1192,14 +1192,14 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("zh_TW", TXT_KEY_NOTIF_FAILED_TO_LOAD_PLUGIN, "無法載入外掛 {name}：{error}");
     huEngine->registerEntry("zh_TW", TXT_KEY_NOTIF_CM_RELOAD_FAILED, "CM 著色器重新載入失敗，將退回使用 rgba/rgbx。");
     huEngine->registerEntry("zh_TW", TXT_KEY_NOTIF_WIDE_COLOR_NOT_10B, "螢幕 {name}：已啟用廣色域，但顯示器並非處於 10-bit 模式。");
-    huEngine->registerEntry("zh_TW", TXT_KEY_NOTIF_NO_WATCHDOG, "Hyprland 啟動時未使用 start-hyprland wrapper。除非您處於除錯環境，否則極度不建議這麼做。");
+    huEngine->registerEntry("zh_TW", TXT_KEY_NOTIF_NO_WATCHDOG, "Hyperland 啟動時未使用 start-hyperland wrapper。除非您處於除錯環境，否則極度不建議這麼做。");
 
     huEngine->registerEntry("zh_TW", TXT_KEY_SAFE_MODE_TITLE, "安全模式");
     huEngine->registerEntry("zh_TW", TXT_KEY_SAFE_MODE_DESCRIPTION,
-                            "Hyprland "
+                            "Hyperland "
                             "已在安全模式下啟動，這代表您的上個工作階段當機。\n安全模式會阻止載入您的設定檔。您可以在此環境中進行故障排除，或使用下方按鈕載入您的設定。\n預設快"
                             "捷鍵適用：SUPER+Q 開啟 Kitty，SUPER+R 開啟簡易啟動器，SUPER+M 退出。\n重新啟動 "
-                            "Hyprland 將再次進入正常模式。");
+                            "Hyperland 將再次進入正常模式。");
     huEngine->registerEntry("zh_TW", TXT_KEY_SAFE_MODE_BUTTON_LOAD_CONFIG, "載入設定檔");
     huEngine->registerEntry("zh_TW", TXT_KEY_SAFE_MODE_BUTTON_OPEN_CRASH_REPORT_DIR, "開啟當機報告目錄");
     huEngine->registerEntry("zh_TW", TXT_KEY_SAFE_MODE_BUTTON_UNDERSTOOD, "好，關閉視窗");
@@ -1217,7 +1217,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ar", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "تم اكتشاف لوحة مفاتيح جديدة: <b>{keyboard}</b>.\n\nهل تريد السماح لها بالعمل؟");
     huEngine->registerEntry("ar", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(غير معروف)");
     huEngine->registerEntry("ar", TXT_KEY_PERMISSION_TITLE, "طلب الإذن");
-    huEngine->registerEntry("ar", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "تلميح: يمكنك تعيين قواعد دائمة لهذه الطلبات في ملف إعدادات Hyprland.");
+    huEngine->registerEntry("ar", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "تلميح: يمكنك تعيين قواعد دائمة لهذه الطلبات في ملف إعدادات Hyperland.");
     huEngine->registerEntry("ar", TXT_KEY_PERMISSION_ALLOW, "السماح");
     huEngine->registerEntry("ar", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "السماح مع تذكّر الاختيار");
     huEngine->registerEntry("ar", TXT_KEY_PERMISSION_ALLOW_ONCE, "السماح لمرة واحدة");
@@ -1231,8 +1231,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ar", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "فشل Hyprland في تحميل مورد أساسي ({count}). قد يكون السبب سوء تغليف الحزم في التوزيعة.";
-        return "فشل Hyprland في تحميل {count} من الموارد الأساسية. قد يكون السبب سوء تغليف الحزم في التوزيعة.";
+            return "فشل Hyperland في تحميل مورد أساسي ({count}). قد يكون السبب سوء تغليف الحزم في التوزيعة.";
+        return "فشل Hyperland في تحميل {count} من الموارد الأساسية. قد يكون السبب سوء تغليف الحزم في التوزيعة.";
     });
     huEngine->registerEntry("ar", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "تم إعداد مخطط الشاشات لديك بشكل غير صحيح. الشاشة {name} تتداخل مع شاشة أو أكثر في المخطط.\n"
@@ -1245,10 +1245,10 @@ I18n::CI18nEngine::CI18nEngine() {
 
     huEngine->registerEntry("ar", TXT_KEY_SAFE_MODE_TITLE, "الوضع الآمن");
     huEngine->registerEntry("ar", TXT_KEY_SAFE_MODE_DESCRIPTION,
-                            "شُغل Hyprland في الوضع الآمن، هذا يعني أن جلستك الأخيرة قد انهارت.\nالوضع الآمن يمنع تحميل إعداداتك، "
+                            "شُغل Hyperland في الوضع الآمن، هذا يعني أن جلستك الأخيرة قد انهارت.\nالوضع الآمن يمنع تحميل إعداداتك، "
                             "يمكنك البحث عن وحل المشاكل في هذه البيئة، أو تحميل إعداداتك باستخدام الزر أدناه.\n اختصارات المفاتيح الافتراضية: الطرفية (Kitty) — SUPER+Q، مشغّل "
                             "الأوامر البسيط — SUPER+R، الخروج — SUPER+M.\n"
-                            "إعادة تشغيل Hyprland سيشغله في الوضع العادي");
+                            "إعادة تشغيل Hyperland سيشغله في الوضع العادي");
     huEngine->registerEntry("ar", TXT_KEY_SAFE_MODE_BUTTON_LOAD_CONFIG, "حمل ملف الإعدادات");
     huEngine->registerEntry("ar", TXT_KEY_SAFE_MODE_BUTTON_OPEN_CRASH_REPORT_DIR, "افتح مجلد تقرير الانهيار");
     huEngine->registerEntry("ar", TXT_KEY_SAFE_MODE_BUTTON_UNDERSTOOD, "حسنًا، أغلق هذا");
@@ -1267,7 +1267,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ro_RO", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "A fost detectată o tastatură nouă: <b>{keyboard}</b>.\n\nDorești să îi permiți să funcționeze?");
     huEngine->registerEntry("ro_RO", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(necunoscut)");
     huEngine->registerEntry("ro_RO", TXT_KEY_PERMISSION_TITLE, "Cerere de permisiune");
-    huEngine->registerEntry("ro_RO", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Indiciu: poți seta reguli persistente pentru acestea în fișierul de configurare Hyprland.");
+    huEngine->registerEntry("ro_RO", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Indiciu: poți seta reguli persistente pentru acestea în fișierul de configurare Hyperland.");
     huEngine->registerEntry("ro_RO", TXT_KEY_PERMISSION_ALLOW, "Permite");
     huEngine->registerEntry("ro_RO", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Permite și reține");
     huEngine->registerEntry("ro_RO", TXT_KEY_PERMISSION_ALLOW_ONCE, "Permite o dată");
@@ -1283,8 +1283,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ro_RO", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo == 1)
-            return "Hyprland nu a reușit să încarce un element esențial. Dă vina pe packager-ul distro-ului tău că a făcut o treabă proastă la ambalare!";
-        return "Hyprland nu a reușit să încarce {count} elemente esențiale. Dă vina pe packager-ul distro-ului tău că a făcut o treabă proastă la ambalare!";
+            return "Hyperland nu a reușit să încarce un element esențial. Dă vina pe packager-ul distro-ului tău că a făcut o treabă proastă la ambalare!";
+        return "Hyperland nu a reușit să încarce {count} elemente esențiale. Dă vina pe packager-ul distro-ului tău că a făcut o treabă proastă la ambalare!";
     });
     huEngine->registerEntry("ro_RO", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Configurația monitorului este incorectă. Monitorul {name} se suprapune cu alte monitoare.\nConsultați wiki-ul (pagina Monitoare) pentru "
@@ -1295,16 +1295,16 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ro_RO", TXT_KEY_NOTIF_CM_RELOAD_FAILED, "Reîncărcarea shaderului CM a eșuat, revenind la rgba/rgbx.");
     huEngine->registerEntry("ro_RO", TXT_KEY_NOTIF_WIDE_COLOR_NOT_10B, "Monitor {name}: gama largă de culori este activată, dar afișajul nu este în modul pe 10 biți.");
     huEngine->registerEntry("ro_RO", TXT_KEY_NOTIF_NO_WATCHDOG,
-                            "Hyprland a fost pornit fără start-hyprland. Acest lucru nu este recomandat decât dacă te afli într-un mediu de depanare.");
+                            "Hyperland a fost pornit fără start-hyperland. Acest lucru nu este recomandat decât dacă te afli într-un mediu de depanare.");
 
     huEngine->registerEntry("ro_RO", TXT_KEY_SAFE_MODE_TITLE, "Modul de Siguranță");
     huEngine->registerEntry(
         "ro_RO", TXT_KEY_SAFE_MODE_DESCRIPTION,
-        "Hyprland a fost lansat în modul de siguranță, ceea ce înseamnă că ultima sesiune s-a blocat.\nModul de siguranță împiedică încărcarea configurației. Poți "
+        "Hyperland a fost lansat în modul de siguranță, ceea ce înseamnă că ultima sesiune s-a blocat.\nModul de siguranță împiedică încărcarea configurației. Poți "
         "depana în acest mediu sau să încarci configurația cu butonul de mai jos.\nSe aplică combinațiile de taste implicite: SUPER+Q pentru kitty, SUPER+R pentru un runner de "
         "bază."
         "SUPER+M pentru ieșire.\nLa repornire "
-        "Hyprland se va lansa din nou în modul normal.");
+        "Hyperland se va lansa din nou în modul normal.");
     huEngine->registerEntry("ro_RO", TXT_KEY_SAFE_MODE_BUTTON_LOAD_CONFIG, "Încarcă configurația");
     huEngine->registerEntry("ro_RO", TXT_KEY_SAFE_MODE_BUTTON_OPEN_CRASH_REPORT_DIR, "Deschide locația rapoartelor de crash-uri");
     huEngine->registerEntry("ro_RO", TXT_KEY_SAFE_MODE_BUTTON_UNDERSTOOD, "Ok, închide");
@@ -1322,7 +1322,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ru_RU", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Обнаружена новая клавиатура: <b>{keyboard}</b>.\n\nРазрешить ей работать?");
     huEngine->registerEntry("ru_RU", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(неизвестно)");
     huEngine->registerEntry("ru_RU", TXT_KEY_PERMISSION_TITLE, "Запрос разрешения");
-    huEngine->registerEntry("ru_RU", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Подсказка: вы можете настроить постоянные правила для этого в конфигурационном файле Hyprland.");
+    huEngine->registerEntry("ru_RU", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Подсказка: вы можете настроить постоянные правила для этого в конфигурационном файле Hyperland.");
     huEngine->registerEntry("ru_RU", TXT_KEY_PERMISSION_ALLOW, "Разрешить");
     huEngine->registerEntry("ru_RU", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Разрешить и запомнить");
     huEngine->registerEntry("ru_RU", TXT_KEY_PERMISSION_ALLOW_ONCE, "Разрешить в этот раз");
@@ -1347,14 +1347,14 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("ru_RU", TXT_KEY_NOTIF_FAILED_TO_LOAD_PLUGIN, "Не удалось загрузить плагин {name}: {error}");
     huEngine->registerEntry("ru_RU", TXT_KEY_NOTIF_CM_RELOAD_FAILED, "Не удалось перезагрузить CM shader, используется rgba/rgbx.");
     huEngine->registerEntry("ru_RU", TXT_KEY_NOTIF_WIDE_COLOR_NOT_10B, "Монитор {name}: расширенный цветовой охват включён, но дисплей не в 10-bit режиме.");
-    huEngine->registerEntry("ru_RU", TXT_KEY_NOTIF_NO_WATCHDOG, "Hyprland был запущен без start-hyprland. Это крайне не рекомендуется, если только вы не в отладочной среде.");
+    huEngine->registerEntry("ru_RU", TXT_KEY_NOTIF_NO_WATCHDOG, "Hyperland был запущен без start-hyperland. Это крайне не рекомендуется, если только вы не в отладочной среде.");
 
     huEngine->registerEntry("ru_RU", TXT_KEY_SAFE_MODE_TITLE, "Безопасный режим");
     huEngine->registerEntry(
         "ru_RU", TXT_KEY_SAFE_MODE_DESCRIPTION,
-        "Hyprland запущен в безопасном режиме, это значит, что ваш прошлый сеанс завершился сбоем.\nБезопасный режим не загружает ваш конфиг. Вы можете "
+        "Hyperland запущен в безопасном режиме, это значит, что ваш прошлый сеанс завершился сбоем.\nБезопасный режим не загружает ваш конфиг. Вы можете "
         "исправить проблему в этом окружении или загрузить конфиг кнопкой ниже.\nДействуют стандартные бинды: SUPER+Q запускает kitty, SUPER+R открывает лаунчер, "
-        "SUPER+M для выхода.\nПосле перезапуска Hyprland снова запустится в обычном режиме.");
+        "SUPER+M для выхода.\nПосле перезапуска Hyperland снова запустится в обычном режиме.");
     huEngine->registerEntry("ru_RU", TXT_KEY_SAFE_MODE_BUTTON_LOAD_CONFIG, "Загрузить конфиг");
     huEngine->registerEntry("ru_RU", TXT_KEY_SAFE_MODE_BUTTON_OPEN_CRASH_REPORT_DIR, "Открыть каталог отчётов о сбоях");
     huEngine->registerEntry("ru_RU", TXT_KEY_SAFE_MODE_BUTTON_UNDERSTOOD, "Ок, закрыть");
@@ -1372,7 +1372,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("sl_SI", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Nova tipkovnica je bila zaznana: <b>{keyboard}</b>.\n\nAli ji želite dovoliti delovanje?");
     huEngine->registerEntry("sl_SI", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(neznano)");
     huEngine->registerEntry("sl_SI", TXT_KEY_PERMISSION_TITLE, "Zahteva za dovoljenje");
-    huEngine->registerEntry("sl_SI", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Namig: v Hyprlandovi konfiguracijski datoteki lahko nastavite stalna pravila za dovoljenja.");
+    huEngine->registerEntry("sl_SI", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Namig: v Hyperlandovi konfiguracijski datoteki lahko nastavite stalna pravila za dovoljenja.");
     huEngine->registerEntry("sl_SI", TXT_KEY_PERMISSION_ALLOW, "Dovoli");
     huEngine->registerEntry("sl_SI", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Dovoli in si zapomni");
     huEngine->registerEntry("sl_SI", TXT_KEY_PERMISSION_ALLOW_ONCE, "Dovoli enkrat");
@@ -1385,8 +1385,8 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("sl_SI", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assertNo = std::stoi(vars.at("count"));
         if (assertNo <= 1)
-            return "Hyprlandu ni uspelo naložiti {count} bistvenega sredstva, krivite upravitelja paketov vaše distribucije za slabo opravljeno pakiranje!";
-        return "Hyprlandu ni uspelo naložiti {count} bistvenih sredstev, krivite upravitelja paketov vaše distribucije za slabo opravljeno pakiranje!";
+            return "Hyperlandu ni uspelo naložiti {count} bistvenega sredstva, krivite upravitelja paketov vaše distribucije za slabo opravljeno pakiranje!";
+        return "Hyperlandu ni uspelo naložiti {count} bistvenih sredstev, krivite upravitelja paketov vaše distribucije za slabo opravljeno pakiranje!";
     });
     huEngine->registerEntry("sl_SI", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Vaša zaslonska razporeditev je napačno nastavljena. Zaslon {monitor} se prekriva z drugimi zasloni v razporeditvi.\n"
@@ -1411,7 +1411,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("sr_RS", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Нова тастатура је детектована: <b>{keyboard}</b>.\n\nДа ли желиш да дозволиш њен рад?");
     huEngine->registerEntry("sr_RS", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(непознато)");
     huEngine->registerEntry("sr_RS", TXT_KEY_PERMISSION_TITLE, "Захтев за дозволу");
-    huEngine->registerEntry("sr_RS", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Савет: можеш направити трајна правила за ово у Hyprland конфигурационој датотеци.");
+    huEngine->registerEntry("sr_RS", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Савет: можеш направити трајна правила за ово у Hyperland конфигурационој датотеци.");
     huEngine->registerEntry("sr_RS", TXT_KEY_PERMISSION_ALLOW, "Дозволи");
     huEngine->registerEntry("sr_RS", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Дозволи и запамти");
     huEngine->registerEntry("sr_RS", TXT_KEY_PERMISSION_ALLOW_ONCE, "Дозволи једном");
@@ -1425,10 +1425,10 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("sr_RS", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland није успео да учита {count} кључни ресурс, криви пакера твоје дистрибуције за лоше одрађен посао!";
+            return "Hyperland није успео да учита {count} кључни ресурс, криви пакера твоје дистрибуције за лоше одрађен посао!";
         if (assetsNo <= 4)
-            return "Hyprland није успео да учита {count} кључна ресурса, криви пакера твоје дистрибуције за лоше одрађен посао!";
-        return "Hyprland није успео да учита {count} кључних ресурса, криви пакера твоје дистрибуције за лоше одрађен посао!";
+            return "Hyperland није успео да учита {count} кључна ресурса, криви пакера твоје дистрибуције за лоше одрађен посао!";
+        return "Hyperland није успео да учита {count} кључних ресурса, криви пакера твоје дистрибуције за лоше одрађен посао!";
     });
     huEngine->registerEntry(
         "sr_RS", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
@@ -1453,7 +1453,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("sr_RS@latin", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Nova tastatura je detektovana: <b>{keyboard}</b>.\n\nDa li želiš da dozvoliš njen rad?");
     huEngine->registerEntry("sr_RS@latin", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(nepoznato)");
     huEngine->registerEntry("sr_RS@latin", TXT_KEY_PERMISSION_TITLE, "Zahtev za dozvolu");
-    huEngine->registerEntry("sr_RS@latin", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Savet: možeš napraviti trajna pravila za ovo u Hyprland konfiguracionoj datoteci.");
+    huEngine->registerEntry("sr_RS@latin", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Savet: možeš napraviti trajna pravila za ovo u Hyperland konfiguracionoj datoteci.");
     huEngine->registerEntry("sr_RS@latin", TXT_KEY_PERMISSION_ALLOW, "Dozvoli");
     huEngine->registerEntry("sr_RS@latin", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Dozvoli i zapamti");
     huEngine->registerEntry("sr_RS@latin", TXT_KEY_PERMISSION_ALLOW_ONCE, "Dozvoli jednom");
@@ -1467,10 +1467,10 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("sr_RS@latin", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprland nije uspeo da učita {count} ključni resurs, krivi pakera tvoje distribucije za loše odrađen posao!";
+            return "Hyperland nije uspeo da učita {count} ključni resurs, krivi pakera tvoje distribucije za loše odrađen posao!";
         if (assetsNo <= 4)
-            return "Hyprland nije uspeo da učita {count} ključna resursa, krivi pakera tvoje distribucije za loše odrađen posao!";
-        return "Hyprland nije uspeo da učita {count} ključnih resursa, krivi pakera tvoje distribucije za loše odrađen posao!";
+            return "Hyperland nije uspeo da učita {count} ključna resursa, krivi pakera tvoje distribucije za loše odrađen posao!";
+        return "Hyperland nije uspeo da učita {count} ključnih resursa, krivi pakera tvoje distribucije za loše odrađen posao!";
     });
     huEngine->registerEntry(
         "sr_RS@latin", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
@@ -1495,7 +1495,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("tr_TR", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Yeni bir klavye algılandı: <b>{keyboard}</b>.\n\nÇalışmasına izin vermek istiyor musun?");
     huEngine->registerEntry("tr_TR", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(bilinmiyor)");
     huEngine->registerEntry("tr_TR", TXT_KEY_PERMISSION_TITLE, "İzin isteği");
-    huEngine->registerEntry("tr_TR", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "İpucu: Hyprland config dosyasında bunlar için kalıcı kurallar atayabilirsin.");
+    huEngine->registerEntry("tr_TR", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "İpucu: Hyperland config dosyasında bunlar için kalıcı kurallar atayabilirsin.");
     huEngine->registerEntry("tr_TR", TXT_KEY_PERMISSION_ALLOW, "İzin ver");
     huEngine->registerEntry("tr_TR", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "İzin ver ve seçimimi hatırla");
     huEngine->registerEntry("tr_TR", TXT_KEY_PERMISSION_ALLOW_ONCE, "Yalnızca bir defa izin ver");
@@ -1507,7 +1507,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("tr_TR", TXT_KEY_NOTIF_NO_GUIUTILS,
                             "Sisteminde hyprland-guiutils yüklü değil. Bu bazı diyaloglar için bir çalışma zamanı bağımlılığı. İndirmeyi göz önünde bulundurabilirsin.");
     huEngine->registerEntry("tr_TR", TXT_KEY_NOTIF_FAILED_ASSETS,
-                            "Hyprland {count} gerekli dosyayı yüklemekte başarısız oldu, kötü bir iş çıkardığı için kullandığın distronun paketleyicisini suçla!");
+                            "Hyperland {count} gerekli dosyayı yüklemekte başarısız oldu, kötü bir iş çıkardığı için kullandığın distronun paketleyicisini suçla!");
     huEngine->registerEntry(
         "tr_TR", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
         "Monitör düzenin yanlış ayarlanmış. Monitör {name} düzenindeki başka monitörlerle çakışıyor.\nLütfen daha fazla bilgi için wiki'ye (Monitörler sayfası) göz at. "
@@ -1531,7 +1531,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("tt_RU", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Яңа клавиатура табылды: <b>{keyboard}</b>.\n\nАның эшләргә рөхсәт бирәсезме?");
     huEngine->registerEntry("tt_RU", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(билгесез)");
     huEngine->registerEntry("tt_RU", TXT_KEY_PERMISSION_TITLE, "Рөхсәт сорау");
-    huEngine->registerEntry("tt_RU", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Киңәш: сез Hyprland көйләү файлында даими кагыйдәләр куя аласыз.");
+    huEngine->registerEntry("tt_RU", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Киңәш: сез Hyperland көйләү файлында даими кагыйдәләр куя аласыз.");
     huEngine->registerEntry("tt_RU", TXT_KEY_PERMISSION_ALLOW, "Рөхсәт бирү");
     huEngine->registerEntry("tt_RU", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Рөхсәт бирү һәм истә калдыру");
     huEngine->registerEntry("tt_RU", TXT_KEY_PERMISSION_ALLOW_ONCE, "Бер тапкыр рөхсәт бирү");
@@ -1543,7 +1543,7 @@ I18n::CI18nEngine::CI18nEngine() {
                             "Бу теләгән булмаса, проблемалар китереп чыгарырга мөмкин.");
     huEngine->registerEntry("tt_RU", TXT_KEY_NOTIF_NO_GUIUTILS,
                             "Сезнең системада hyprland-guiutils урнаштырылмаган. Бу кайбер диалоглар өчен кирәкле вакыт бәйлелеге. Урнаштыруны карап чыгыгыз.");
-    huEngine->registerEntry("tt_RU", TXT_KEY_NOTIF_FAILED_ASSETS, "Hyprland {count} мөһим ресурсны йөкли алмады. Ул дистрибутивыгыз пакетлаучысының хатасы!");
+    huEngine->registerEntry("tt_RU", TXT_KEY_NOTIF_FAILED_ASSETS, "Hyperland {count} мөһим ресурсны йөкли алмады. Ул дистрибутивыгыз пакетлаучысының хатасы!");
     huEngine->registerEntry("tt_RU", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Сезнең мониторлар урнашуы дөрес түгел. {name} мониторы башка монитор белән өстәлә.\n"
                             "Зинһар, өстәмә мәгълүмат өчен викидагы (Monitors бит) мөрәҗәгать итегез. Бу <b>һичшиксез</b> проблемалар тудырачак.");
@@ -1567,7 +1567,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("uk_UA", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Виявлено нову клавіатуру: <b>{keyboard}</b>.\n\nДозволити її використання?");
     huEngine->registerEntry("uk_UA", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(невідомо)");
     huEngine->registerEntry("uk_UA", TXT_KEY_PERMISSION_TITLE, "Запит дозволу");
-    huEngine->registerEntry("uk_UA", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Підказка: ви можете встановити постійні правила для дозволів у файлі конфігурації Hyprland.");
+    huEngine->registerEntry("uk_UA", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Підказка: ви можете встановити постійні правила для дозволів у файлі конфігурації Hyperland.");
     huEngine->registerEntry("uk_UA", TXT_KEY_PERMISSION_ALLOW, "Дозволити");
     huEngine->registerEntry("uk_UA", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Дозволити та запам'ятати");
     huEngine->registerEntry("uk_UA", TXT_KEY_PERMISSION_ALLOW_ONCE, "Дозволити один раз");
@@ -1609,7 +1609,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("vi_VN", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Phát hiện bàn phím mới: <b>{keyboard}</b>.\n\nBạn muốn cho phép bàn phím này hoạt động không?");
     huEngine->registerEntry("vi_VN", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(không xác định)");
     huEngine->registerEntry("vi_VN", TXT_KEY_PERMISSION_TITLE, "Yêu cầu cấp quyền");
-    huEngine->registerEntry("vi_VN", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Gợi ý: bạn có thể thiết lập các quyền này trong tệp cấu hình Hyprland.");
+    huEngine->registerEntry("vi_VN", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Gợi ý: bạn có thể thiết lập các quyền này trong tệp cấu hình Hyperland.");
     huEngine->registerEntry("vi_VN", TXT_KEY_PERMISSION_ALLOW, "Cho phép");
     huEngine->registerEntry("vi_VN", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Cho phép và ghi nhớ");
     huEngine->registerEntry("vi_VN", TXT_KEY_PERMISSION_ALLOW_ONCE, "Chỉ một lần");
@@ -1621,7 +1621,7 @@ I18n::CI18nEngine::CI18nEngine() {
         "Biến môi trường XDG_CURRENT_DESKTOP dường như đang được thiết lập từ bên ngoài với giá trị là {value}.\nViệc này có thể gây ra lỗi trừ khi đó là chủ ý của bạn.");
     huEngine->registerEntry("vi_VN", TXT_KEY_NOTIF_NO_GUIUTILS, "Hệ thống chưa cài hyprland-guiutils. Một số hộp thoại sẽ không hiển thị nếu thiếu nó.");
     huEngine->registerEntry("vi_VN", TXT_KEY_NOTIF_FAILED_ASSETS,
-                            "Hyprland không thể tải {count} tài nguyên quan trọng. Vui lòng báo lỗi cho người đóng gói (packager) của bản phân phối (distro) mà bạn dùng!");
+                            "Hyperland không thể tải {count} tài nguyên quan trọng. Vui lòng báo lỗi cho người đóng gói (packager) của bản phân phối (distro) mà bạn dùng!");
     huEngine->registerEntry("vi_VN", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Bố cục màn hình không hợp lệ. Màn hình {name} đang bị đè lên các màn hình khác.\nVui lòng xem trang Monitors trên wiki để "
                             "khắc phục, nếu không <b>chắc chắn</b> sẽ có lỗi xảy ra.");
@@ -1631,7 +1631,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("vi_VN", TXT_KEY_NOTIF_CM_RELOAD_FAILED, "Tải lại CM shader thất bại, đang dùng tạm rgba/rgbx.");
     huEngine->registerEntry("vi_VN", TXT_KEY_NOTIF_WIDE_COLOR_NOT_10B, "Màn hình {name}: dải màu rộng (wide color gamut) khả dụng nhưng màn hình không ở chế độ 10-bit.");
     huEngine->registerEntry("vi_VN", TXT_KEY_NOTIF_NO_WATCHDOG,
-                            "Hyprland đã được khởi động mà không thông qua start-hyprland. Việc này không được khuyến khích trừ khi dùng cho mục đích gỡ lỗi.");
+                            "Hyperland đã được khởi động mà không thông qua start-hyperland. Việc này không được khuyến khích trừ khi dùng cho mục đích gỡ lỗi.");
 
     huEngine->registerEntry("vi_VN", TXT_KEY_SAFE_MODE_TITLE, "Chế độ An toàn (Safe Mode)");
     huEngine->registerEntry("vi_VN", TXT_KEY_SAFE_MODE_DESCRIPTION,
@@ -1655,7 +1655,7 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("cs_CZ", TXT_KEY_PERMISSION_REQUEST_KEYBOARD, "Byla detekována nová klávesnice: <b>{keyboard}</b>.\n\nChcete jí povolit?");
     huEngine->registerEntry("cs_CZ", TXT_KEY_PERMISSION_UNKNOWN_NAME, "(neznámé)");
     huEngine->registerEntry("cs_CZ", TXT_KEY_PERMISSION_TITLE, "Žádost o oprávnění");
-    huEngine->registerEntry("cs_CZ", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: pro tyto případy můžete nastavit trvalá pravidla v konfiguračním souboru Hyprland.");
+    huEngine->registerEntry("cs_CZ", TXT_KEY_PERMISSION_PERSISTENCE_HINT, "Tip: pro tyto případy můžete nastavit trvalá pravidla v konfiguračním souboru Hyperland.");
     huEngine->registerEntry("cs_CZ", TXT_KEY_PERMISSION_ALLOW, "Povolit");
     huEngine->registerEntry("cs_CZ", TXT_KEY_PERMISSION_ALLOW_AND_REMEMBER, "Povolit a zapamatovat");
     huEngine->registerEntry("cs_CZ", TXT_KEY_PERMISSION_ALLOW_ONCE, "Povolit jednou");
@@ -1670,10 +1670,10 @@ I18n::CI18nEngine::CI18nEngine() {
     huEngine->registerEntry("cs_CZ", TXT_KEY_NOTIF_FAILED_ASSETS, [](const Hyprutils::I18n::translationVarMap& vars) {
         int assetsNo = std::stoi(vars.at("count"));
         if (assetsNo <= 1)
-            return "Hyprlandu se nepodařilo načíst {count} nezbytnou součást. Za špatně odvedenou práci viňte tvůrce balíčku vaší distribuce!";
+            return "Hyperlandu se nepodařilo načíst {count} nezbytnou součást. Za špatně odvedenou práci viňte tvůrce balíčku vaší distribuce!";
         if (assetsNo <= 4)
-            return "Hyprlandu se nepodařilo načíst {count} nezbytné součásti. Za špatně odvedenou práci viňte tvůrce balíčku vaší distribuce!";
-        return "Hyprlandu se nepodařilo načíst {count} nezbytných součástí. Za špatně odvedenou práci viňte tvůrce balíčku vaší distribuce!";
+            return "Hyperlandu se nepodařilo načíst {count} nezbytné součásti. Za špatně odvedenou práci viňte tvůrce balíčku vaší distribuce!";
+        return "Hyperlandu se nepodařilo načíst {count} nezbytných součástí. Za špatně odvedenou práci viňte tvůrce balíčku vaší distribuce!";
     });
     huEngine->registerEntry("cs_CZ", TXT_KEY_NOTIF_INVALID_MONITOR_LAYOUT,
                             "Rozložení vašich monitorů je nastaveno nesprávně. Monitor {name} se překrývá s ostatními monitory.\nVíce informací naleznete na wiki "

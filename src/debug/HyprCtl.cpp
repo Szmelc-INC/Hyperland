@@ -1043,7 +1043,7 @@ std::string versionRequest(eHyprCtlOutputFormat format, std::string request) {
     std::ranges::replace(commitMsg, '#', ' ');
 
     if (format == eHyprCtlOutputFormat::FORMAT_NORMAL) {
-        std::string result = std::format("Hyprland {} built from branch {} at commit {} {} ({}).\n"
+        std::string result = std::format("Hyperland {} built from branch {} at commit {} {} ({}).\n"
                                          "Date: {}\n"
                                          "Tag: {}, commits: {}\n",
                                          HYPRLAND_VERSION, GIT_BRANCH, GIT_COMMIT_HASH, GIT_DIRTY, commitMsg, GIT_COMMIT_DATE, GIT_TAG, GIT_COMMITS);
@@ -2345,7 +2345,7 @@ void CHyprCtl::startHyprCtlSocket() {
     m_socketFD = CFileDescriptor{socket(AF_UNIX, SOCK_STREAM | SOCK_CLOEXEC, 0)};
 
     if (!m_socketFD.isValid()) {
-        Log::logger->log(Log::ERR, "Couldn't start the Hyprland Socket. (1) IPC will not work.");
+        Log::logger->log(Log::ERR, "Couldn't start the Hyperland Socket. (1) IPC will not work.");
         return;
     }
 
@@ -2356,7 +2356,7 @@ void CHyprCtl::startHyprCtlSocket() {
     snprintf(SERVERADDRESS.sun_path, sizeof(SERVERADDRESS.sun_path), "%s", m_socketPath.c_str());
 
     if (bind(m_socketFD.get(), rc<sockaddr*>(&SERVERADDRESS), SUN_LEN(&SERVERADDRESS)) < 0) {
-        Log::logger->log(Log::ERR, "Couldn't start the Hyprland Socket. (2) IPC will not work.");
+        Log::logger->log(Log::ERR, "Couldn't start the Hyperland Socket. (2) IPC will not work.");
         return;
     }
 

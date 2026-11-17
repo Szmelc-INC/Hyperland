@@ -125,4 +125,4 @@ _hyprctl () {
     return 0
 }
 
-complete -o nospace -F _hyprctl hyprctl
+complete -o nospace -F _hyprctl hyprctl hyperctl

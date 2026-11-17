@@ -25,6 +25,9 @@
 #include <vector>
 #include <filesystem>
 #include <cstdarg>
+#include <utility>
+
+extern char** environ;
 #include <hyprutils/string/String.hpp>
 #include <hyprutils/memory/Casts.hpp>
 using namespace Hyprutils::String;
@@ -198,7 +201,7 @@ int request(std::string_view arg, int minArgs = 0, bool needRoll = false) {
     }
 
     if (instanceSignature.empty()) {
-        log("HYPRLAND_INSTANCE_SIGNATURE was not set! (Is Hyprland running?) (3)");
+        log("HYPRLAND_INSTANCE_SIGNATURE was not set! (Is Hyperland running?) (3)");
         return 3;
     }
 
@@ -232,7 +235,7 @@ int request(std::string_view arg, int minArgs = 0, bool needRoll = false) {
 
     if (sizeWritten < 0) {
         if (errno == EWOULDBLOCK)
-            log("Hyprland IPC didn't respond in time\n");
+            log("Hyperland IPC didn't respond in time\n");
         log("Couldn't read (6)");
         return 6;
     }
@@ -264,7 +267,7 @@ int requestIPC(std::string_view filename, std::string_view arg) {
     }
 
     if (instanceSignature.empty()) {
-        log("HYPRLAND_INSTANCE_SIGNATURE was not set! (Is Hyprland running?)");
+        log("HYPRLAND_INSTANCE_SIGNATURE was not set! (Is Hyperland running?)");
         return 2;
     }
 
@@ -361,7 +364,25 @@ std::vector<std::string> splitArgs(int argc, char** argv) {
     return result;
 }
 
+// Hyperland: every HYPERLAND_FOO=bar in the environment also provides HYPRLAND_FOO=bar
+// (unless that is already set), so both spellings of every variable keep working.
+static void mirrorHyperlandEnv() {
+    std::vector<std::pair<std::string, std::string>> twins;
+    for (char** e = environ; e && *e; ++e) {
+        const std::string_view kv = *e;
+        const auto             eq = kv.find('=');
+        if (!kv.starts_with("HYPERLAND_") || eq == std::string_view::npos)
+            continue;
+        twins.emplace_back("HYPRLAND_" + std::string{kv.substr(10, eq - 10)}, std::string{kv.substr(eq + 1)});
+    }
+    for (const auto& [k, v] : twins) {
+        setenv(k.c_str(), v.c_str(), 0);
+    }
+}
+
 int main(int argc, char** argv) {
+    mirrorHyperlandEnv();
+
     bool parseArgs = true;
 
     if (argc < 2) {

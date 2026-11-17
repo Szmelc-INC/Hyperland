@@ -1,7 +1,8 @@
 [Desktop Entry]
-Name=Hyprland (uwsm-managed)
-Comment=An intelligent dynamic tiling Wayland compositor
+Name=Hyprland (uwsm-managed, Hyperland compatibility entry)
+Comment=Kept so existing `uwsm start hyprland-uwsm.desktop` setups keep working; use Hyperland
 Exec=uwsm start -e -D Hyprland hyprland.desktop
 TryExec=uwsm
 DesktopNames=Hyprland
 Type=Application
+NoDisplay=true

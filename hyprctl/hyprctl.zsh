@@ -1,4 +1,4 @@
-#compdef hyprctl
+#compdef hyprctl hyperctl
 
 _hyprctl_cmd_1 () {
     hyprctl monitors | awk '/Monitor/{ print $2 }'
@@ -59,7 +59,7 @@ _hyprctl () {
     descriptions[54]="Lock the focused group"
     descriptions[55]="OK"
     descriptions[56]="Move a workspace to a monitor"
-    descriptions[58]="Specify the Hyprland instance"
+    descriptions[58]="Specify the Hyperland instance"
     descriptions[59]="Disable output"
     descriptions[61]="Pin a window"
     descriptions[62]="WARNING"
@@ -75,8 +75,8 @@ _hyprctl () {
     descriptions[77]="Switch focus from current to previously focused window"
     descriptions[78]="No Icon"
     descriptions[79]="Execute a batch of commands separated by ;"
-    descriptions[80]="Send a notification using the built-in Hyprland notification system"
-    descriptions[82]="List all running Hyprland instances and their info"
+    descriptions[80]="Send a notification using the built-in Hyperland notification system"
+    descriptions[82]="List all running Hyperland instances and their info"
     descriptions[83]="Maximize no fullscreen"
     descriptions[84]="Maximize and fullscreen"
     descriptions[85]="Move the active window out of a group"
@@ -93,7 +93,7 @@ _hyprctl () {
     descriptions[97]="Focus the first window matching"
     descriptions[98]="Set the hyprctl error string"
     descriptions[101]="List all registered binds"
-    descriptions[102]="Print the Hyprland version: flags, commit and branch of build"
+    descriptions[102]="Print the Hyperland version: flags, commit and branch of build"
     descriptions[103]="Prints the help message"
     descriptions[104]="Toggle a special workspace on/off"
     descriptions[105]="Toggle the focused window's fullscreen state"
@@ -101,7 +101,7 @@ _hyprctl () {
     descriptions[108]="Issue a keyword to call a config keyword dynamically"
     descriptions[109]="Toggle the current window to always be opaque"
     descriptions[110]="ERROR"
-    descriptions[111]="Specify the Hyprland instance"
+    descriptions[111]="Specify the Hyperland instance"
     descriptions[112]="Toggle the current window's floating state"
     descriptions[113]="Rename a workspace"
     descriptions[115]="Get the active workspace name and its properties"
@@ -268,7 +268,7 @@ _hyprctl () {
 }
 
 if [[ $ZSH_EVAL_CONTEXT =~ :file$ ]]; then
-    compdef _hyprctl hyprctl
+    compdef _hyprctl hyprctl hyperctl
 else
     _hyprctl
 fi

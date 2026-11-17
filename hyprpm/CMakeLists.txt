@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.19)
 
 project(
     hyprpm
-    DESCRIPTION "A Hyprland Plugin Manager"
+    DESCRIPTION "A Hyperland Plugin Manager"
 )
 
 file(GLOB_RECURSE SRCFILES CONFIGURE_DEPENDS "src/*.cpp")
@@ -30,14 +30,18 @@ add_executable(hyprpm ${SRCFILES})
 
 target_link_libraries(hyprpm PUBLIC PkgConfig::hyprpm_deps glaze::glaze)
 
-# binary
+# binary: hyperpm, with hyprpm as an alias
+set_target_properties(hyprpm PROPERTIES OUTPUT_NAME hyperpm)
 install(TARGETS hyprpm)
+hyperland_install_alias(${CMAKE_INSTALL_FULL_BINDIR} hyperpm hyprpm)
 
 # shell completions
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprpm.bash
-        DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions
-        RENAME hyprpm)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprpm.fish
+foreach(NAME hyprpm hyperpm)
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprpm.bash
+          DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions
+          RENAME ${NAME})
+endforeach()
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprpm.fish ${CMAKE_CURRENT_SOURCE_DIR}/hyperpm.fish
         DESTINATION ${CMAKE_INSTALL_DATADIR}/fish/vendor_completions.d)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/hyprpm.zsh
         DESTINATION ${CMAKE_INSTALL_DATADIR}/zsh/site-functions

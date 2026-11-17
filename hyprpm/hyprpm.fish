@@ -22,7 +22,7 @@ function _hyprpm
     set literals "--no-shallow" "-n" "::=" "disable" "list" "--help" "update" "add" "--verbose" "-v" "--force" "-s" "remove" "enable" "--notify" "-h" "reload" "-f"
 
     set descriptions
-    set descriptions[1] "Disable shallow cloning of Hyprland sources"
+    set descriptions[1] "Disable shallow cloning of Hyperland sources"
     set descriptions[2] "Send a hyprland notification for important events (e.g. load fail)"
     set descriptions[4] "Unload a plugin"
     set descriptions[5] "List all installed plugins"
@@ -32,7 +32,7 @@ function _hyprpm
     set descriptions[9] "Enable too much logging"
     set descriptions[10] "Enable too much logging"
     set descriptions[11] "Force an operation ignoring checks (e.g. update -f)"
-    set descriptions[12] "Disable shallow cloning of Hyprland sources"
+    set descriptions[12] "Disable shallow cloning of Hyperland sources"
     set descriptions[13] "Remove a plugin repository"
     set descriptions[14] "Load a plugin"
     set descriptions[15] "Send a hyprland notification for important events (e.g. load fail)"

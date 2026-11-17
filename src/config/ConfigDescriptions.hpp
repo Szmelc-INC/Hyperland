@@ -860,7 +860,7 @@ inline static const std::vector<SConfigOptionDescription> CONFIG_OPTIONS = {
     },
     SConfigOptionDescription{
         .value       = "group:focus_removed_window",
-        .description = "whether Hyprland should focus on the window that has just been moved out of the group",
+        .description = "whether Hyperland should focus on the window that has just been moved out of the group",
         .type        = CONFIG_OPTION_BOOL,
         .data        = SConfigOptionDescription::SBoolData{true},
     },
@@ -1134,13 +1134,13 @@ inline static const std::vector<SConfigOptionDescription> CONFIG_OPTIONS = {
 
     SConfigOptionDescription{
         .value       = "misc:disable_hyprland_logo",
-        .description = "disables the random Hyprland logo / anime girl background. :(",
+        .description = "disables the random Hyperland logo background.",
         .type        = CONFIG_OPTION_BOOL,
         .data        = SConfigOptionDescription::SBoolData{false},
     },
     SConfigOptionDescription{
         .value       = "misc:disable_splash_rendering",
-        .description = "disables the Hyprland splash rendering. (requires a monitor reload to take effect)",
+        .description = "disables the Hyperland splash rendering. (requires a monitor reload to take effect)",
         .type        = CONFIG_OPTION_BOOL,
         .data        = SConfigOptionDescription::SBoolData{false},
     },
@@ -1164,13 +1164,13 @@ inline static const std::vector<SConfigOptionDescription> CONFIG_OPTIONS = {
     },
     SConfigOptionDescription{
         .value       = "misc:force_default_wallpaper",
-        .description = "Enforce any of the 3 default wallpapers. Setting this to 0 or 1 disables the anime background. -1 means “random”. [-1/0/1/2]",
+        .description = "Enforce any of the 3 default wallpapers. -1 means “random”. [-1/0/1/2]",
         .type        = CONFIG_OPTION_INT,
         .data        = SConfigOptionDescription::SRangeData{-1, -1, 2},
     },
     SConfigOptionDescription{
         .value       = "misc:vfr",
-        .description = "controls the VFR status of Hyprland. Heavily recommended to leave enabled to conserve resources.",
+        .description = "controls the VFR status of Hyperland. Heavily recommended to leave enabled to conserve resources.",
         .type        = CONFIG_OPTION_BOOL,
         .data        = SConfigOptionDescription::SBoolData{true},
     },
@@ -1250,7 +1250,7 @@ inline static const std::vector<SConfigOptionDescription> CONFIG_OPTIONS = {
     },
     SConfigOptionDescription{
         .value       = "misc:focus_on_activate",
-        .description = "Whether Hyprland should focus an app that requests to be focused (an activate request)",
+        .description = "Whether Hyperland should focus an app that requests to be focused (an activate request)",
         .type        = CONFIG_OPTION_BOOL,
         .data        = SConfigOptionDescription::SBoolData{false},
     },
@@ -1329,7 +1329,7 @@ inline static const std::vector<SConfigOptionDescription> CONFIG_OPTIONS = {
     },
     SConfigOptionDescription{
         .value       = "misc:disable_watchdog_warning",
-        .description = "whether to disable the warning about not using start-hyprland.",
+        .description = "whether to disable the warning about not using start-hyperland.",
         .type        = CONFIG_OPTION_BOOL,
         .data        = SConfigOptionDescription::SBoolData{false},
     },
@@ -1737,7 +1737,7 @@ inline static const std::vector<SConfigOptionDescription> CONFIG_OPTIONS = {
     },
     SConfigOptionDescription{
         .value       = "ecosystem:enforce_permissions",
-        .description = "whether to enable permission control (see https://wiki.hypr.land/Configuring/Permissions/).",
+        .description = "whether to enable permission control (see https://szmelc-inc.github.io/hyperland-wiki/Configuring/Permissions/).",
         .type        = CONFIG_OPTION_BOOL,
         .data        = SConfigOptionDescription::SBoolData{false},
     },
@@ -1790,7 +1790,7 @@ inline static const std::vector<SConfigOptionDescription> CONFIG_OPTIONS = {
     },
     SConfigOptionDescription{
         .value       = "debug:manual_crash",
-        .description = "set to 1 and then back to 0 to crash Hyprland.",
+        .description = "set to 1 and then back to 0 to crash Hyperland.",
         .type        = CONFIG_OPTION_INT,
         .data        = SConfigOptionDescription::SRangeData{0, 0, 1},
     },

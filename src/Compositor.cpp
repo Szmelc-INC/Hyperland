@@ -92,7 +92,7 @@ using enum NContentType::eContentType;
 using namespace NColorManagement;
 
 static int handleCritSignal(int signo, void* data) {
-    Log::logger->log(Log::DEBUG, "Hyprland received signal {}", signo);
+    Log::logger->log(Log::DEBUG, "Hyperland received signal {}", signo);
 
     if (signo == SIGTERM || signo == SIGINT || signo == SIGKILL)
         g_pCompositor->stopCompositor();
@@ -199,6 +199,7 @@ CCompositor::CCompositor(bool onlyConfig) : m_onlyConfigVerification(onlyConfig)
     m_instanceSignature = std::format("{}_{}_{}", GIT_COMMIT_HASH, std::time(nullptr), distribution(engine));
 
     setenv("HYPRLAND_INSTANCE_SIGNATURE", m_instanceSignature.c_str(), true);
+    setenv("HYPERLAND_INSTANCE_SIGNATURE", m_instanceSignature.c_str(), true);
 
     if (!std::filesystem::exists(m_hyprTempDataRoot))
         mkdir(m_hyprTempDataRoot.c_str(), S_IRWXU);
@@ -225,7 +226,7 @@ CCompositor::CCompositor(bool onlyConfig) : m_onlyConfigVerification(onlyConfig)
 
     Log::logger->log(Log::DEBUG, "Runtime directory: {}", m_instancePath);
 
-    Log::logger->log(Log::DEBUG, "Hyprland PID: {}", m_hyprlandPID);
+    Log::logger->log(Log::DEBUG, "Hyperland PID: {}", m_hyprlandPID);
 
     Log::logger->log(Log::DEBUG, "===== SYSTEM INFO: =====");
 
@@ -235,7 +236,7 @@ CCompositor::CCompositor(bool onlyConfig) : m_onlyConfigVerification(onlyConfig)
 
     Log::logger->log(Log::DEBUG, "\n\n"); // pad
 
-    Log::logger->log(Log::INFO, "If you are crashing, or encounter any bugs, please consult https://wiki.hypr.land/Crashes-and-Bugs/\n\n");
+    Log::logger->log(Log::INFO, "If you are crashing, or encounter any bugs, please consult https://szmelc-inc.github.io/hyperland-wiki/Crashes-and-Bugs/\n\n");
 
     setRandomSplash();
 
@@ -509,9 +510,11 @@ void CCompositor::cleanEnvironment() {
     unsetenv("WAYLAND_DISPLAY");
     // in startCompositor
     unsetenv("HYPRLAND_INSTANCE_SIGNATURE");
+    unsetenv("HYPERLAND_INSTANCE_SIGNATURE");
 
     // in main
     unsetenv("HYPRLAND_CMD");
+    unsetenv("HYPERLAND_CMD");
     unsetenv("XDG_BACKEND");
     if (m_desktopEnvSet)
         unsetenv("XDG_CURRENT_DESKTOP");
@@ -519,16 +522,18 @@ void CCompositor::cleanEnvironment() {
     if (m_aqBackend->hasSession() && !Env::envEnabled("HYPRLAND_NO_SD_VARS")) {
         const auto CMD =
 #ifdef USES_SYSTEMD
-            "systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME PATH XDG_DATA_DIRS && hash "
+            "systemctl --user unset-environment DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE HYPERLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME PATH "
+            "XDG_DATA_DIRS && hash "
             "dbus-update-activation-environment 2>/dev/null && "
 #endif
-            "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE QT_QPA_PLATFORMTHEME PATH XDG_DATA_DIRS";
+            "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE HYPERLAND_INSTANCE_SIGNATURE QT_QPA_PLATFORMTHEME PATH "
+            "XDG_DATA_DIRS";
         CKeybindManager::spawn(CMD);
     }
 }
 
 void CCompositor::stopCompositor() {
-    Log::logger->log(Log::DEBUG, "Hyprland is stopping!");
+    Log::logger->log(Log::DEBUG, "Hyperland is stopping!");
 
     // this stops the wayland loop, wl_display_run
     wl_display_terminate(m_wlDisplay);
@@ -765,10 +770,12 @@ void CCompositor::startCompositor() {
         !Env::envEnabled("HYPRLAND_NO_SD_VARS")) {
         const auto CMD =
 #ifdef USES_SYSTEMD
-            "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME PATH XDG_DATA_DIRS && hash "
+            "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE HYPERLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME PATH "
+            "XDG_DATA_DIRS && hash "
             "dbus-update-activation-environment 2>/dev/null && "
 #endif
-            "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE QT_QPA_PLATFORMTHEME PATH XDG_DATA_DIRS";
+            "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE HYPERLAND_INSTANCE_SIGNATURE QT_QPA_PLATFORMTHEME PATH "
+            "XDG_DATA_DIRS";
         CKeybindManager::spawn(CMD);
     }
 
@@ -795,7 +802,7 @@ void CCompositor::startCompositor() {
         write(m_watchdogWriteFd.get(), "vax", 3);
 
     // This blocks until we are done.
-    Log::logger->log(Log::DEBUG, "Hyprland is ready, running the event loop!");
+    Log::logger->log(Log::DEBUG, "Hyperland is ready, running the event loop!");
     g_pEventLoopManager->enterLoop();
 }
 

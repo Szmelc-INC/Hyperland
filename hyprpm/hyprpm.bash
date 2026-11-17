@@ -105,4 +105,4 @@ _hyprpm () {
     return 0
 }
 
-complete -o nospace -F _hyprpm hyprpm
+complete -o nospace -F _hyprpm hyprpm hyperpm
