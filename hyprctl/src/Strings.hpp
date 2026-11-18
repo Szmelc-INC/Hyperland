@@ -53,6 +53,7 @@ commands:
     splash              → Get the current splash
     switchxkblayout ... → Sets the xkb layout index for a keyboard
     systeminfo          → Get system info
+    tui                 → (hyperctl) Opens the interactive hyperctl-tui
     version             → Prints the hyprland version, meaning flags, commit
                           and branch of build.
     workspacerules      → Lists all workspace rules
@@ -66,6 +67,13 @@ flags:
     --instance (-i)     → use a specific instance. Can be either signature or
                           index in hyprctl instances (0, 1, etc)
     --quiet (-q)        → Disable the output of hyprctl
+    --plain             → (hyperctl) Print the plain upstream output, never
+                          the pretty one
+    --pretty            → (hyperctl) Pretty-print even when not on a terminal
+
+Pretty output: `hyperctl` on a terminal renders replies through hyperctl-tui.
+`hyprctl`, pipes, -j, -q and --batch always get the upstream output. Set
+HYPERCTL_PRETTY=never|always or HYPERCTL_RAW=1 to override.
 
 --help:
     Can be used to print command's arguments that did not fit into this page

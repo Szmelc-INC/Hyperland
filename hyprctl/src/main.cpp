@@ -380,6 +380,43 @@ static void mirrorHyperlandEnv() {
     }
 }
 
+// Hyperland: pretty output and the TUI live in the hyperctl-tui helper. Only the `hyperctl`
+// name uses it, and only on a terminal, so `hyprctl` and every pipe keep the upstream output.
+static void execHyperctlTui(const std::vector<std::string>& args) {
+    std::error_code ec;
+    const auto      self = std::filesystem::read_symlink("/proc/self/exe", ec);
+    if (!ec)
+        setenv("HYPERCTL_BIN", self.c_str(), 1);
+
+    std::string        name = "hyperctl-tui";
+    std::vector<char*> argv = {name.data()};
+    for (const auto& a : args) {
+        argv.push_back(const_cast<char*>(a.c_str()));
+    }
+    argv.push_back(nullptr);
+
+    if (!ec)
+        execv((self.parent_path() / "hyperctl-tui").c_str(), argv.data());
+#ifdef HYPERCTL_TUI_PATH
+    execv(HYPERCTL_TUI_PATH, argv.data());
+#endif
+    execvp("hyperctl-tui", argv.data());
+    // only reached when the helper is missing
+}
+
+static bool wantsPretty(bool invokedAsHyperctl, bool plain, bool pretty) {
+    if (getenv("HYPERCTL_RAW") || plain)
+        return false;
+
+    const std::string_view MODE = getenv("HYPERCTL_PRETTY") ? getenv("HYPERCTL_PRETTY") : "auto";
+    if (MODE == "never" || MODE == "0" || MODE == "off")
+        return false;
+    if (pretty || MODE == "always" || MODE == "1" || MODE == "on")
+        return true;
+
+    return invokedAsHyperctl && isatty(STDOUT_FILENO);
+}
+
 int main(int argc, char** argv) {
     mirrorHyperlandEnv();
 
@@ -396,6 +433,8 @@ int main(int argc, char** argv) {
     bool        json             = false;
     bool        needRoll         = false;
     std::string overrideInstance = "";
+    bool        plain            = false;
+    bool        pretty           = false;
 
     for (std::size_t i = 0; i < ARGS.size(); ++i) {
         if (ARGS[i] == "--") {
@@ -428,6 +467,10 @@ int main(int argc, char** argv) {
                 }
 
                 overrideInstance = ARGS[i];
+            } else if (ARGS[i] == "--plain") {
+                plain = true;
+            } else if (ARGS[i] == "--pretty") {
+                pretty = true;
             } else if (ARGS[i] == "-q" || ARGS[i] == "--quiet") {
                 quiet = true;
             } else if (ARGS[i] == "--help") {
@@ -471,6 +514,24 @@ int main(int argc, char** argv) {
     }
 
     fullRequest.pop_back(); // remove trailing space
+
+    const bool INVOKEDASHYPERCTL = std::filesystem::path(argv[0]).filename() == "hyperctl";
+    const auto COMMAND           = fullRequest.substr(0, fullRequest.find(' '));
+
+    if (COMMAND == "tui" && INVOKEDASHYPERCTL) {
+        std::vector<std::string> tuiArgs = {"ui"};
+        tuiArgs.insert(tuiArgs.end(), std::ranges::find(ARGS, std::string{"tui"}) + 1, ARGS.end());
+        execHyperctlTui(tuiArgs);
+        log("hyperctl tui: hyperctl-tui is not installed");
+        return 1;
+    }
+
+    if (fullArgs.empty() && !quiet && COMMAND != "--batch" && COMMAND != "hyprpaper" && COMMAND != "hyprsunset" && wantsPretty(INVOKEDASHYPERCTL, plain, pretty)) {
+        std::vector<std::string> renderArgs = {"render", "--"};
+        renderArgs.insert(renderArgs.end(), ARGS.begin(), ARGS.end());
+        execHyperctlTui(renderArgs);
+        // no helper: fall through to the plain output
+    }
 
     fullRequest = fullArgs + "/" + fullRequest;
 

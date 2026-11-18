@@ -208,6 +208,7 @@ in
         "NO_UWSM" = !withSystemd;
         "TRACY_ENABLE" = false;
         "WITH_TESTS" = withTests;
+        "BUILD_HYPERCTL_TUI" = false; # Go modules need network; not built in the Nix sandbox yet
       };
 
       preConfigure = ''

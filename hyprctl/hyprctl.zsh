@@ -1,4 +1,4 @@
-#compdef hyprctl hyperctl
+#compdef hyprctl
 
 _hyprctl_cmd_1 () {
     hyprctl monitors | awk '/Monitor/{ print $2 }'
@@ -268,7 +268,7 @@ _hyprctl () {
 }
 
 if [[ $ZSH_EVAL_CONTEXT =~ :file$ ]]; then
-    compdef _hyprctl hyprctl hyperctl
+    compdef _hyprctl hyprctl
 else
     _hyprctl
 fi
