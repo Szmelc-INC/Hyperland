@@ -159,6 +159,7 @@
         # hyperland names
         hyperland
         hyperland-unwrapped
+        hyperctl-tui
         # hyprland-packages
         hyprland
         hyprland-unwrapped
@@ -176,6 +177,10 @@
         type = "app";
         program = "${self.packages.${system}.hyperland}/bin/Hyperland";
       };
+      hyperctl-tui = {
+        type = "app";
+        program = "${self.packages.${system}.hyperctl-tui}/bin/hyperctl-tui";
+      };
     });
 
     devShells = eachSystem (system: {
@@ -186,7 +191,7 @@
           name = "hyperland-shell";
           hardeningDisable = ["fortify"];
           inputsFrom = [pkgsFor.${system}.hyprland];
-          packages = [pkgsFor.${system}.clang-tools];
+          packages = with pkgsFor.${system}; [clang-tools go gopls];
           inherit (self.checks.${system}.pre-commit-check) shellHook;
         };
     });

@@ -28,7 +28,7 @@ jobs:
           export XDG_RUNTIME_DIR="$(mktemp -d)"
           ./build/Hyperland --version
           DESTDIR="$PWD/stage" cmake --install build --prefix /usr
-          for f in Hyperland hyperland Hyprland hyprland hyperctl hyprctl hyperpm hyprpm start-hyperland start-hyprland; do
+          for f in Hyperland hyperland Hyprland hyprland hyperctl hyprctl hyperctl-tui hyperpm hyprpm start-hyperland start-hyprland; do
             test -e "stage/usr/bin/$f" || { echo "missing /usr/bin/$f"; exit 1; }
           done
           for f in hyperland.desktop hyprland.desktop hyperland-uwsm.desktop hyprland-uwsm.desktop; do
@@ -38,6 +38,21 @@ jobs:
           test -e stage/usr/share/pkgconfig/hyperland.pc
           test -e stage/usr/share/hypr/hyperland.conf
           test -e stage/usr/share/hypr/hyprland.conf
+          for f in bash-completion/completions/hyperctl bash-completion/completions/hyperctl-tui \
+                   zsh/site-functions/_hyperctl zsh/site-functions/_hyperctl-tui \
+                   fish/vendor_completions.d/hyperctl.fish fish/vendor_completions.d/hyperctl-tui.fish; do
+            test -e "stage/usr/share/$f" || { echo "missing /usr/share/$f"; exit 1; }
+          done
+          stage/usr/bin/hyperctl-tui --no-color version
+          # piped output never goes through the pretty renderer
+          test "$(stage/usr/bin/hyperctl version 2>&1 | cat)" = "$(HYPERCTL_RAW=1 stage/usr/bin/hyperctl version 2>&1)"
+
+      - name: hyperctl-tui tests
+        run: |
+          cd hyperctl-tui
+          test -z "$(gofmt -l .)"
+          go vet ./...
+          go test -race -count=1 ./...
 
       - name: Compress and package artifacts
         run: |
@@ -46,6 +61,7 @@ jobs:
           cp ./LICENSE hyperland/
           cp build/Hyperland hyperland/
           cp build/hyprctl/hyperctl hyperland/
+          cp build/hyprctl/hyperctl-tui hyperland/
           cp build/hyprpm/hyperpm hyperland/
           cp -r example/ hyperland/
           cp -r assets/ hyperland/

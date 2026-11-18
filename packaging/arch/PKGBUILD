@@ -46,6 +46,7 @@ depends=(
 makedepends=(
   cmake
   git
+  go
   hyprwayland-scanner
   ninja
   wayland-protocols
@@ -95,9 +96,16 @@ prepare() {
   git config submodule.subprojects/udis86.url "$srcdir/udis86"
   git config submodule.subprojects/tracy.url "$srcdir/tracy"
   git -c protocol.file.allow=always submodule update
+
+  # hyperctl-tui (pretty hyperctl output, hyperctl tui): fetch Go modules up front
+  cd hyperctl-tui
+  GOPATH="$srcdir/gopath" GOFLAGS=-modcacherw go mod download
 }
 
 build() {
+  export GOPATH="$srcdir/gopath"
+  export CGO_ENABLED=0
+  export GOFLAGS="-trimpath -mod=readonly -modcacherw"
   cmake -S "$pkgname" -B build -G Ninja \
     -DCMAKE_BUILD_TYPE=None \
     -DCMAKE_INSTALL_PREFIX=/usr \
