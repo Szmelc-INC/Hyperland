@@ -45,6 +45,8 @@
   wayland-protocols,
   wayland-scanner,
   xwayland,
+  # Go helper for pretty `hyperctl` output and `hyperctl tui`; null leaves it out
+  hyperctl-tui ? null,
   debug ? false,
   withTests ? false,
   enableXWayland ? true,
@@ -199,17 +201,20 @@ in
       # we want as much debug info as possible
       dontStrip = debug;
 
-      cmakeFlags = mapAttrsToList cmakeBool {
-        "BUILT_WITH_NIX" = true;
-        "NO_XWAYLAND" = !enableXWayland;
-        "LEGACY_RENDERER" = legacyRenderer;
-        "NO_SYSTEMD" = !withSystemd;
-        "CMAKE_DISABLE_PRECOMPILE_HEADERS" = true;
-        "NO_UWSM" = !withSystemd;
-        "TRACY_ENABLE" = false;
-        "WITH_TESTS" = withTests;
-        "BUILD_HYPERCTL_TUI" = false; # Go modules need network; not built in the Nix sandbox yet
-      };
+      cmakeFlags =
+        mapAttrsToList cmakeBool {
+          "BUILT_WITH_NIX" = true;
+          "NO_XWAYLAND" = !enableXWayland;
+          "LEGACY_RENDERER" = legacyRenderer;
+          "NO_SYSTEMD" = !withSystemd;
+          "CMAKE_DISABLE_PRECOMPILE_HEADERS" = true;
+          "NO_UWSM" = !withSystemd;
+          "TRACY_ENABLE" = false;
+          "WITH_TESTS" = withTests;
+          # built as its own buildGoModule package (nix/hyperctl-tui.nix)
+          "BUILD_HYPERCTL_TUI" = false;
+        }
+        ++ optional (hyperctl-tui != null) (lib.cmakeFeature "HYPERCTL_TUI_PATH" (lib.getExe hyperctl-tui));
 
       preConfigure = ''
         substituteInPlace hyprtester/CMakeLists.txt --replace-fail \
@@ -231,6 +236,14 @@ in
             pciutils
             pkgconf
           ]}
+        ''}
+
+        ${optionalString (hyperctl-tui != null) ''
+          ln -s ${hyperctl-tui}/bin/hyperctl-tui $out/bin/hyperctl-tui
+          for d in bash-completion/completions zsh/site-functions fish/vendor_completions.d; do
+            mkdir -p $out/share/$d
+            ln -s ${hyperctl-tui}/share/$d/* $out/share/$d/
+          done
         ''}
 
         ${optionalString withTests ''

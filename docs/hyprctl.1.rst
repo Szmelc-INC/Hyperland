@@ -104,6 +104,41 @@ OPTIONS
 
     Outputs information in JSON.
 
+**--plain**
+
+    (hyperctl) Print the plain upstream output, never the pretty one.
+
+**--pretty**
+
+    (hyperctl) Pretty-print even when standard output is not a terminal.
+
+HYPERCTL
+========
+
+Invoked as **hyperctl** with standard output on a terminal, replies are rendered as tables
+and cards by **hyperctl-tui**. Invoked as **hyprctl**, piped, or with *-j*, *-q* or
+*--batch*, the output is exactly that of Hyprland's hyprctl. When **hyperctl-tui** is not
+installed the plain output is printed.
+
+**hyperctl tui**
+
+    Opens the interactive hyperctl-tui interface.
+
+ENVIRONMENT
+===========
+
+**HYPERCTL_PRETTY**
+
+    *auto* (default), *always* or *never*.
+
+**HYPERCTL_RAW**
+
+    When set, hyperctl prints the plain output.
+
+**NO_COLOR**
+
+    Disables colors in the pretty output.
+
 BUGS
 ====
 

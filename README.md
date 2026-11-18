@@ -96,17 +96,38 @@ git clone --recursive https://github.com/Szmelc-INC/Hyperland
 cd Hyperland
 cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
 cmake --build build
-sudo cmake --install build
+pkexec cmake --install "$PWD/build"
 ```
+
+Or with the Makefile: `make release && make install`. Run `make` alone to list every target
+(build, test, lint, `compat`, `stage`, `doctor`, packaging, ...).
 
 Dependencies are those of Hyprland 0.54 (aquamarine, hyprlang, hyprutils, hyprcursor,
 hyprgraphics, hyprwire, hyprwayland-scanner, wayland, libinput, pango, cairo, re2, muparser,
-tomlplusplus, xcb-util-*). Current Arch versions of the hypr* libraries work.
+tomlplusplus, xcb-util-*). Current Arch versions of the hypr* libraries work. Go is needed for
+`hyperctl-tui`; without it the build skips it (`-DBUILD_HYPERCTL_TUI=OFF` does so explicitly).
 
 ## Use
 
 Pick **Hyperland** in your display manager, or run `start-hyperland` from a TTY.
 Configuration lives in `~/.config/hypr/`; see the [Hyperland wiki](https://szmelc-inc.github.io/hyperland-wiki/).
+
+### hyperctl
+
+`hyperctl` is `hyprctl`, plus two things that only happen under the `hyperctl` name:
+
+- **Pretty output.** On a terminal, replies are drawn as tables and cards by the
+  `hyperctl-tui` helper (`hyperctl clients`, `monitors`, `binds`, `version`, ...).
+  `hyprctl`, pipes, `-j`, `-q` and `--batch` always print the exact upstream output, so
+  scripts never notice. Opt out with `--plain`, `HYPERCTL_PRETTY=never` or
+  `pretty = never` in `~/.config/hypr/hyperctl.conf`; force it with `--pretty`.
+- **`hyperctl tui`.** An interactive view of windows, workspaces, monitors, devices, binds,
+  layers and system info that updates live. Arrows/`j k` move, `tab` switches tabs, `enter`
+  opens actions (focus, move, float, pin, fullscreen, close...), `/` filters, `:` runs any
+  hyperctl command, `?` shows help, `esc` backs out. `--dry-run` sends nothing.
+
+`hyperctl-tui config init` writes the config file (palette, confirmations, start tab);
+`hyperctl-tui help` lists the rest.
 
 Plugins: `hyperpm` (or `hyprpm`) fetches the headers of the running commit from this repository
 and builds 0.54 plugins against them, exactly as `hyprpm` does on Hyprland.

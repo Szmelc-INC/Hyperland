@@ -37,6 +37,7 @@ in {
       date = mkDate (self.lastModifiedDate or "19700101");
       version = "${ver}+date=${date}_${self.shortRev or "dirty"}";
     in {
+      hyperctl-tui = final.callPackage ./hyperctl-tui.nix {version = ver;};
       hyprland = final.callPackage ./default.nix {
         stdenv = final.gcc15Stdenv;
         commit = self.rev or "";
